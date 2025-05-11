@@ -43,12 +43,6 @@ const styles = StyleSheet.create({
      padding: 2,
      borderRadius: 20, // Adjust for desired roundness
      borderWidth: 1, // Optional subtle border
-    // Default border color (will be overridden by theme)
-    // shadowColor: '#000', // Optional subtle shadow
-    // shadowOffset: { width: 0, height: 1 },
-    // shadowOpacity: 0.1,
-    // shadowRadius: 2,
-    // elevation: 1, // For Android shadow
   },
 });
 

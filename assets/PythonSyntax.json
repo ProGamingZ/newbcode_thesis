@@ -1,0 +1,12 @@
+{
+    "python comments": "#single line comment\n'''\nmulti\nline\ncomment\n'''",
+    "python output": "print()",
+    "python variable": "'identifier' = 'value'",
+    "python data types": "text:\n str\nnumeric:\n int,float,complex\nsequence:\n list,tuple,range\nmapping:\n dict\nset:\n set,frozenset\nboolean:\n bool\nbinary:\n bytes,bytearray,memoryview\nnone:\n noneType",
+    "python type casting": "int() - constructs an integer\nfloat() - constructs a float number\nstr() - constructs a string",
+    "python if": "if condition:\n   code block",
+    "python elif": "if condition:\n   code block\nelif condition:\n   code block",
+    "python else": "if condition:\n   code block\nelif condition:\n   code block\nelse\n   code block",
+    "python while": "while condition:\n   code block",
+    "python for": "for 'identifier in 'identifier':\n   code block"
+}
