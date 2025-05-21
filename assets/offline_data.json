@@ -441,165 +441,229 @@
   },
   "java_syntax": {
     "basic program structure": {
+      "syntax": "public class MyProgram {\n    public static void main(String[] args) {\n        // Your code here\n    }\n}",
       "explanation": "A basic Java program typically includes a class definition and a `main` method, which is the entry point of the application.",
-      "example": "public class MyProgram {\n    public static void main(String[] args) {\n        // Your code here\n    }\n}"
+      "example": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+      "output": "Hello, World!"
     },
     "single-line comment": {
       "syntax": "// This is a single-line comment",
-      "explanation": "Single-line comments in Java start with `//` and extend to the end of the line. They are used for short explanations or notes."
+      "explanation": "Single-line comments in Java start with `//` and extend to the end of the line. They're used for short explanations or notes.",
+      "example": "int x = 10; // Declare and initialize an integer variable"
     },
     "multi-line comment": {
       "syntax": "/*\n * This is a\n * multi-line comment.\n * It can span across multiple lines.\n */",
-      "explanation": "Multi-line comments in Java are enclosed between `/*` and `*/`. They can be used for longer explanations or to temporarily block out sections of code."
+      "explanation": "Multi-line comments in Java are enclosed between `/*` and `*/`. They can be used for longer explanations or to temporarily block out sections of code.",
+      "example": "/*\n * This method calculates the sum\n * of two numbers and returns the result.\n */\npublic int add(int a, int b) {\n    return a + b;\n}"
     },
     "print output": {
       "syntax": "System.out.print(value);",
-      "explanation": "`System.out.print()` displays the `value` to the console without adding a newline character at the end."
+      "explanation": "`System.out.print()` displays the `value` to the console without adding a newline character at the end.",
+      "example": "System.out.print(\"Hello\");\nSystem.out.print(\" World\");",
+      "output": "Hello World"
     },
     "println output": {
       "syntax": "System.out.println(value);",
-      "explanation": "`System.out.println()` displays the `value` to the console and then moves the cursor to the beginning of the next line."
+      "explanation": "`System.out.println()` displays the `value` to the console and then moves the cursor to the beginning of the next line.",
+      "example": "System.out.println(\"Hello\");\nSystem.out.println(\"World\");",
+      "output": "Hello\nWorld"
     },
     "printf output": {
       "syntax": "System.out.printf(formatString, [argument1, argument2, ...]);",
       "explanation": "`System.out.printf()` allows formatted output using a `formatString` that can contain format specifiers (e.g., `%d` for integers, `%f` for floating-point numbers, `%s` for strings) that are replaced by the provided arguments.",
-      "example": "int age = 30;\nString name = \"John\";\nSystem.out.printf(\"Name: %s, Age: %d%n\", name, age);"
+      "example": "int age = 30;\nString name = \"John\";\nSystem.out.printf(\"Name: %s, Age: %d%n\", name, age);",
+      "output": "Name: John, Age: 30"
     },
-    "variable declaration": {
+    "var variable declaration declare": {
       "syntax": "dataType identifier [= value];",
       "explanation": "To declare a variable in Java, you specify its `dataType` followed by the `identifier` (the variable name). You can optionally initialize it with a `value` at the time of declaration.",
       "example": "int count;\nString message = \"Hello\";\nboolean isActive = true;"
     },
     "byte data type": {
-      "explanation": "The `byte` data type can store whole numbers from -128 to 127 (inclusive). It's the smallest integer type."
+      "syntax": "byte variableName = value;",
+      "explanation": "The `byte` data type can store whole numbers from -128 to 127 (inclusive). It's the smallest integer type.",
+      "example": "byte level = 50;"
     },
     "short data type": {
-      "explanation": "The `short` data type can store whole numbers from -32,768 to 32,767 (inclusive)."
+      "syntax": "short variableName = value;",
+      "explanation": "The `short` data type can store whole numbers from -32,768 to 32,767 (inclusive).",
+      "example": "short quantity = 10000;"
     },
     "int data type": {
-      "explanation": "The `int` data type is the primary integer type and can store whole numbers from -2,147,483,648 to 2,147,483,647 (inclusive)."
+      "syntax": "int variableName = value;",
+      "explanation": "The `int` data type is the primary integer type and can store whole numbers from -2,147,483,648 to 2,147,483,647 (inclusive).",
+      "example": "int population = 1500000;"
     },
     "long data type": {
-      "explanation": "The `long` data type can store larger whole numbers than `int`, from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (inclusive). You often append `L` to a `long` literal (e.g., `100L`)."
+      "syntax": "long variableName = valueL;",
+      "explanation": "The `long` data type can store larger whole numbers than `int`, from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (inclusive). You often append `L` to a `long` literal (e.g., `100L`).",
+      "example": "long accountNumber = 123456789012345L;"
     },
     "float data type": {
-      "explanation": "The `float` data type can store single-precision floating-point numbers. You often append `f` to a `float` literal (e.g., `3.14f`)."
+      "syntax": "float variableName = valuef;",
+      "explanation": "The `float` data type can store single-precision floating-point numbers. You often append `f` to a `float` literal (e.g., `3.14f`).",
+      "example": "float temperature = 25.5f;"
     },
     "double data type": {
-      "explanation": "The `double` data type can store double-precision floating-point numbers and is generally preferred over `float` for accuracy."
+      "syntax": "double variableName = value;",
+      "explanation": "The `double` data type can store double-precision floating-point numbers and is generally preferred over `float` for accuracy.",
+      "example": "double price = 19.99;"
     },
     "boolean data type": {
-      "explanation": "The `boolean` data type can store only two values: `true` or `false`. It's used for logical conditions."
+      "syntax": "boolean variableName = true/false;",
+      "explanation": "The `boolean` data type can store only two values: `true` or `false`. It's used for logical conditions.",
+      "example": "boolean isLoggedIn = false;"
     },
     "char data type": {
-      "explanation": "The `char` data type can store a single 16-bit Unicode character. Character literals are enclosed in single quotes (e.g., `'A'`, `'9'`, `' '`)."
+      "syntax": "char variableName = 'character';",
+      "explanation": "The `char` data type can store a single 16-bit Unicode character. Character literals are enclosed in single quotes (e.g., `'A'`, `'9'`, `' '`).",
+      "example": "char grade = 'B';"
     },
-    "widening type casting": {
+    "widening type casting implicit": {
+      "syntax": "largerType variableName = smallerTypeVariable;",
       "explanation": "Widening casting (also known as implicit casting) occurs when a smaller primitive type is automatically converted to a larger type. This is generally safe and doesn't lose information (e.g., `int` to `double`).",
       "example": "int myInt = 10;\ndouble myDouble = myInt; // Widening cast"
     },
-    "narrowing type casting": {
+    "narrowing type casting explicit": {
+      "syntax": "smallerType variableName = (smallerType) largerTypeVariable;",
       "explanation": "Narrowing casting (also known as explicit casting) occurs when a larger primitive type is manually converted to a smaller type. This requires a cast operator `()` and can potentially lead to loss of information.",
       "example": "double myDouble = 10.99;\nint myInt = (int) myDouble; // Narrowing cast (loss of decimal part)"
     },
     "arithmetic operators": {
       "syntax": "+ (addition), - (subtraction), * (multiplication), / (division), % (modulus)",
-      "explanation": "These operators perform basic arithmetic operations on numerical values. The modulus operator `%` returns the remainder of a division."
+      "explanation": "These operators perform basic arithmetic operations on numerical values. The modulus operator `%` returns the remainder of a division.",
+      "example": "int a = 10, b = 3;\nint sum = a + b; // 13\nint remainder = a % b; // 1"
     },
     "assignment operators": {
       "syntax": "=, +=, -=, *=, /=, %=",
-      "explanation": "These operators assign values to variables. The compound assignment operators (e.g., `+=`) perform an operation and then assign the result to the variable (e.g., `x += 5` is equivalent to `x = x + 5`)."
+      "explanation": "These operators assign values to variables. The compound assignment operators (e.g., `+=`) perform an operation and then assign the result to the variable (e.g., `x += 5` is equivalent to `x = x + 5`).",
+      "example": "int x = 10;\nx += 5; // x is now 15"
     },
     "comparison operators": {
       "syntax": "== (equal to), != (not equal to), > (greater than), < (less than), >= (greater than or equal to), <= (less than or equal to)",
-      "explanation": "These operators compare two values and return a boolean result (`true` or `false`) based on the comparison."
+      "explanation": "These operators compare two values and return a boolean result (`true` or `false`) based on the comparison.",
+      "example": "int num1 = 5, num2 = 10;\nboolean isEqual = (num1 == num2); // false"
     },
     "logical operators": {
       "syntax": "&& (logical AND), || (logical OR), ! (logical NOT)",
-      "explanation": "These operators perform logical operations on boolean values. `&&` returns true if both operands are true, `||` returns true if at least one operand is true, and `!` inverts the boolean value."
+      "explanation": "These operators perform logical operations on boolean values. `&&` returns true if both operands are true, `||` returns true if at least one operand is true, and `!` inverts the boolean value.",
+      "example": "boolean a = true, b = false;\nboolean resultAnd = a && b; // false\nboolean resultOr = a || b; // true"
     },
     "bitwise operators": {
       "syntax": "& (bitwise AND), | (bitwise OR), ^ (bitwise XOR), ~ (bitwise NOT), << (left shift), >> (right shift with sign extension), >>> (unsigned right shift)",
-      "explanation": "These operators perform operations on the individual bits of integer values."
+      "explanation": "These operators perform operations on the individual bits of integer values.",
+      "example": "int x = 5; // 0101 in binary\nint y = 3; // 0011 in binary\nint resultAnd = x & y; // 1 (0001 in binary)"
     },
     "strings concatenation": {
       "syntax": "String result = string1 + string2;",
-      "explanation": "The `+` operator can be used to concatenate (combine) two or more strings in Java."
+      "explanation": "The `+` operator can be used to concatenate (combine) two or more strings in Java.",
+      "example": "String firstName = \"John\";\nString lastName = \"Doe\";\nString fullName = firstName + \" \" + lastName; // \"John Doe\""
     },
     "numbers and strings": {
-      "explanation": "When you use the `+` operator with a string and a number, Java automatically converts the number to a string before concatenation."
+      "syntax": "String result = string + number;",
+      "explanation": "When you use the `+` operator with a string and a number, Java automatically converts the number to a string before concatenation.",
+      "example": "String text = \"Age: \";\nint age = 30;\nString combined = text + age; // \"Age: 30\""
     },
     "special characters in strings": {
       "syntax": "\\n (newline), \\t (tab), \\\\ (backslash), \\\" (double quote), \\' (single quote)",
-      "explanation": "Special characters in Java strings are represented using escape sequences that start with a backslash `\\`."
+      "explanation": "Special characters in Java strings are represented using escape sequences that start with a backslash `\\`.",
+      "example": "System.out.println(\"Hello\\nWorld\");",
+      "output": "Hello\nWorld"
     },
     "string length() method": {
-      "syntax": "string.length()",
-      "explanation": "The `length()` method returns the number of characters in a string."
+      "syntax": "string.length();",
+      "explanation": "The `length()` method returns the number of characters in a string.",
+      "example": "String text = \"Java\";\nint len = text.length(); // len is 4"
     },
     "string toUpperCase() method": {
-      "syntax": "string.toUpperCase()",
-      "explanation": "The `toUpperCase()` method returns a new string with all characters converted to uppercase."
+      "syntax": "string.toUpperCase();",
+      "explanation": "The `toUpperCase()` method returns a new string with all characters converted to uppercase.",
+      "example": "String text = \"hello\";\nString upperText = text.toUpperCase(); // \"HELLO\""
     },
     "string toLowerCase() method": {
-      "syntax": "string.toLowerCase()",
-      "explanation": "The `toLowerCase()` method returns a new string with all characters converted to lowercase."
+      "syntax": "string.toLowerCase();",
+      "explanation": "The `toLowerCase()` method returns a new string with all characters converted to lowercase.",
+      "example": "String text = \"WORLD\";\nString lowerText = text.toLowerCase(); // \"world\""
     },
     "java math max() method": {
-      "syntax": "Math.max(a, b)",
-      "explanation": "The `Math.max()` method returns the larger of the two provided numbers (`a` and `b`)."
+      "syntax": "Math.max(a, b);",
+      "explanation": "The `Math.max()` method returns the larger of the two provided numbers (`a` and `b`).",
+      "example": "int maxNum = Math.max(10, 5); // maxNum is 10"
     },
     "java math min() method": {
-      "syntax": "Math.min(a, b)",
-      "explanation": "The `Math.min()` method returns the smaller of the two provided numbers (`a` and `b`)."
+      "syntax": "Math.min(a, b);",
+      "explanation": "The `Math.min()` method returns the smaller of the two provided numbers (`a` and `b`).",
+      "example": "int minNum = Math.min(10, 5); // minNum is 5"
     },
     "booleans in conditions": {
-      "explanation": "Boolean variables and expressions are directly used as conditions in `if` statements and loops."
+      "syntax": "if (booleanVariable) { ... }",
+      "explanation": "Boolean variables and expressions are directly used as conditions in `if` statements and loops.",
+      "example": "boolean isValid = true;\nif (isValid) {\n    System.out.println(\"Data is valid.\");\n}",
+      "output": "Data is valid."
     },
     "if conditional": {
       "syntax": "if (condition) {\n    // Code to execute if condition is true\n}",
-      "explanation": "The `if` statement executes a block of code if the specified `condition` evaluates to `true`."
+      "explanation": "The `if` statement executes a block of code if the specified `condition` evaluates to `true`.",
+      "example": "int score = 85;\nif (score > 70) {\n    System.out.println(\"Pass\");\n}",
+      "output": "Pass"
     },
     "else conditional": {
       "syntax": "if (condition) {\n    // Code if true\n} else {\n    // Code if false\n}",
-      "explanation": "The `else` statement provides an alternative block of code to execute if the `condition` in the preceding `if` statement is `false`."
+      "explanation": "The `else` statement provides an alternative block of code to execute if the `condition` in the preceding `if` statement is `false`.",
+      "example": "int age = 16;\nif (age >= 18) {\n    System.out.println(\"Eligible to vote\");\n} else {\n    System.out.println(\"Not eligible to vote\");\n}",
+      "output": "Not eligible to vote"
     },
     "else if conditional": {
       "syntax": "if (condition1) {\n    // Code if condition1 is true\n} else if (condition2) {\n    // Code if condition2 is true\n} else {\n    // Code if neither condition is true\n}",
-      "explanation": "The `else if` statement allows you to check multiple conditions in sequence. If the preceding `if` or `else if` conditions are false, the `else if` condition is evaluated. The `else` block at the end is optional."
+      "explanation": "The `else if` statement allows you to check multiple conditions in sequence. If the preceding `if` or `else if` conditions are false, the `else if` condition is evaluated. The `else` block at the end is optional.",
+      "example": "int temperature = 20;\nif (temperature > 30) {\n    System.out.println(\"Hot\");\n} else if (temperature > 20) {\n    System.out.println(\"Warm\");\n} else {\n    System.out.println(\"Cold\");\n}",
+      "output": "Cold"
     },
     "while loop": {
       "syntax": "while (condition) {\n    // Code to execute while condition is true\n}",
-      "explanation": "The `while` loop repeatedly executes a block of code as long as the specified `condition` remains `true`. Ensure the condition will eventually become `false` to avoid infinite loops."
+      "explanation": "The `while` loop repeatedly executes a block of code as long as the specified `condition` remains `true`. Ensure the condition will eventually become `false` to avoid infinite loops.",
+      "example": "int i = 0;\nwhile (i < 5) {\n    System.out.println(i);\n    i++;\n}",
+      "output": "0\n1\n2\n3\n4"
     },
     "do while loop": {
       "syntax": "do {\n    // Code to execute at least once\n} while (condition);",
-      "explanation": "The `do-while` loop is similar to the `while` loop, but it guarantees that the code block inside the loop will be executed at least once before the `condition` is checked."
+      "explanation": "The `do-while` loop is similar to the `while` loop, but it guarantees that the code block inside the loop will be executed at least once before the `condition` is checked.",
+      "example": "int i = 0;\ndo {\n    System.out.println(i);\n    i++;\n} while (i < 5);",
+      "output": "0\n1\n2\n3\n4"
     },
     "for loop": {
       "syntax": "for (initialization; condition; increment/decrement) {\n    // Code to execute repeatedly\n}",
-      "explanation": "The `for` loop is used for executing a block of code a specific number of times. It consists of three parts: `initialization` (executed once at the beginning), `condition` (checked before each iteration), and `increment/decrement` (executed after each iteration)."
+      "explanation": "The `for` loop is used for executing a block of code a specific number of times. It consists of three parts: `initialization` (executed once at the beginning), `condition` (checked before each iteration), and `increment/decrement` (executed after each iteration).",
+      "example": "for (int i = 0; i < 5; i++) {\n    System.out.println(i);\n}",
+      "output": "0\n1\n2\n3\n4"
     },
     "for-each loop (enhanced for loop)": {
       "syntax": "for (dataType element : arrayName) {\n    // Code to execute for each element\n}",
-      "explanation": "The enhanced `for` loop (or for-each loop) provides a concise way to iterate over elements in an array or collection without explicitly managing indices."
+      "explanation": "The enhanced `for` loop (or for-each loop) provides a concise way to iterate over elements in an array or collection without explicitly managing indices.",
+      "example": "int[] numbers = {1, 2, 3, 4, 5};\nfor (int number : numbers) {\n    System.out.println(number);\n}",
+      "output": "1\n2\n3\n4\n5"
     },
     "break statement": {
       "syntax": "break;",
-      "explanation": "The `break` statement is used to immediately exit a loop (either `while`, `do-while`, or `for`) or a `switch` statement."
+      "explanation": "The `break` statement is used to immediately exit a loop (either `while`, `do-while`, or `for`) or a `switch` statement.",
+      "example": "for (int i = 0; i < 10; i++) {\n    if (i == 5) {\n        break;\n    }\n    System.out.println(i);\n}",
+      "output": "0\n1\n2\n3\n4"
     },
     "continue statement": {
       "syntax": "continue;",
-      "explanation": "The `continue` statement is used within a loop to skip the rest of the current iteration and proceed to the next iteration of the loop."
+      "explanation": "The `continue` statement is used within a loop to skip the rest of the current iteration and proceed to the next iteration of the loop.",
+      "example": "for (int i = 0; i < 5; i++) {\n    if (i == 2) {\n        continue;\n    }\n    System.out.println(i);\n}",
+      "output": "0\n1\n3\n4"
     },
     "array declaration": {
       "syntax": "dataType[] arrayName;\n// or\ndataType arrayName[];",
-      "explanation": "To declare an array in Java, you specify the data type of the elements it will hold followed by square brackets `[]` and the array name. The brackets can be placed after the data type or after the array name."
+      "explanation": "To declare an array in Java, you specify the data type of the elements it will hold followed by square brackets `[]` and the array name. The brackets can be placed after the data type or after the array name.",
+      "example": "String[] cars;\nint numbers[];"
     },
     "array initialization": {
-      "syntax_with_size": "arrayName = new dataType[arraySize];",
-      "syntax_with_values": "dataType[] arrayName = {value1, value2, ...};",
-      "explanation": "You initialize an array by specifying its size using the `new` keyword followed by the data type and the size in square brackets, or by directly providing the initial values enclosed in curly braces `{}`."
+      "syntax": "arrayName = new dataType[arraySize];\n// or\ndataType[] arrayName = {value1, value2, ...};",
+      "explanation": "You initialize an array by specifying its size using the `new` keyword followed by the data type and the size in square brackets, or by directly providing the initial values enclosed in curly braces `{}`.",
+      "example": "int[] scores = new int[5];\nString[] fruits = {\"Apple\", \"Banana\", \"Cherry\"};"
     },
     "accessing array elements": {
       "syntax": "arrayName[index]",
@@ -609,69 +673,88 @@
   },
   "python_syntax": {
     "indentation": {
-      "explanation": "Indentation is crucial in Python. It defines code blocks (like inside loops and conditional statements). Consistent use of spaces (typically 4) or tabs is essential.",
-      "example_correct": "if x > 5:\n    print(\"x is greater than 5\")\n    y = x * 2",
-      "example_incorrect": "if x > 5:\nprint(\"Error due to no indentation\")"
+      "syntax": "    # 4 spaces or a tab",
+      "explanation": "Indentation is crucial in Python. It defines code blocks (like inside loops and conditional statements). Consistent use of **spaces (typically 4)** or **tabs** is essential.",
+      "example": "if x > 5:\n    print(\"x is greater than 5\")\n    y = x * 2"
     },
     "variable creation": {
       "syntax": "variable_name = value",
-      "explanation": "In Python, you create a variable simply by assigning a value to it. You don't need to explicitly declare the data type.",
+      "explanation": "In Python, you create a variable simply by **assigning a value to it**. You don't need to explicitly declare the data type.",
       "example": "age = 30\nname = \"Alice\""
     },
     "variable naming": {
-      "explanation": "Variable names in Python should be descriptive and follow these rules: start with a letter or underscore, can contain letters, numbers, and underscores, and are case-sensitive."
+      "syntax": "variable_name",
+      "explanation": "Variable names in Python should be **descriptive** and follow these rules: start with a **letter or underscore**, can contain letters, numbers, and underscores, and are **case-sensitive**.",
+      "example": "my_variable = 10\n_internal_var = \"test\"\nCONSTANT_VALUE = 3.14"
     },
     "case sensitivity": {
-      "explanation": "Python is case-sensitive. `myVariable` and `myvariable` are treated as two different variables."
+      "syntax": "myVariable vs. myvariable",
+      "explanation": "Python is **case-sensitive**. `myVariable` and `myvariable` are treated as two different variables.",
+      "example": "name = \"Bob\"\nName = \"Charlie\"\nprint(name)   # Output: Bob\nprint(Name)   # Output: Charlie"
     },
     "single-line comment": {
       "syntax": "# This is a single-line comment",
-      "explanation": "Single-line comments in Python start with the hash symbol `#` and continue to the end of the line."
+      "explanation": "Single-line comments in Python start with the **hash symbol `#`** and continue to the end of the line.",
+      "example": "x = 10  # Initialize variable x"
     },
     "assigning values to variables": {
-      "explanation": "You assign values to variables using the `=` operator. The value on the right is assigned to the variable on the left."
+      "syntax": "variable = value",
+      "explanation": "You assign values to variables using the **`=` operator**. The value on the right is assigned to the variable on the left.",
+      "example": "price = 25.50\nis_active = True"
     },
     "outputting variables using print()": {
       "syntax": "print(variable_name)",
-      "explanation": "The `print()` function is used to display the value of a variable (or other expressions) to the console.",
-      "example": "age = 30\nprint(age)"
+      "explanation": "The **`print()` function** is used to display the value of a variable (or other expressions) to the console.",
+      "example": "age = 30\nprint(age)\nmessage = \"Hello\"\nprint(message)"
     },
     "dynamic typing": {
-      "explanation": "Python is dynamically typed, meaning you don't need to explicitly declare the data type of a variable. The type is inferred at runtime based on the assigned value. A variable can even change its type during the program's execution."
+      "syntax": "variable = value (type can change)",
+      "explanation": "Python is **dynamically typed**, meaning you don't need to explicitly declare a variable's data type. The type is inferred at runtime based on the assigned value. A variable can even change its type during the program's execution.",
+      "example": "data = 10       # data is an int\ndata = \"hello\"  # data is now a string"
     },
     "global vs. local variables (brief)": {
-      "explanation": "Global variables are defined outside of any function and can be accessed from anywhere in the program. Local variables are defined inside a function and are only accessible within that function."
+      "syntax": "global_var = value\ndef func():\n    local_var = value",
+      "explanation": "**Global variables** are defined outside of any function and can be accessed from anywhere in the program. **Local variables** are defined inside a function and are only accessible within that function.",
+      "example": "global_message = \"I am global\"\n\ndef greet():\n    local_name = \"Alice\"\n    print(f\"Hello, {local_name}!\")\n    print(global_message)\n\ngreet()"
     },
     "str (introduction)": {
-      "explanation": "The `str` data type represents strings, which are sequences of characters. You can create strings using single quotes (`'...'`) or double quotes (`\"...\"`).",
+      "syntax": "'...' or \"...\"",
+      "explanation": "The **`str` data type** represents **strings**, which are sequences of characters. You can create strings using **single quotes (`'...'`)** or **double quotes (`\"...\"`)**.",
       "example": "name = 'Bob'\nmessage = \"Hello, world!\""
     },
     "str basic operations (creation)": {
-      "explanation": "Strings are created by enclosing characters within single or double quotes. Multi-line strings can be created using triple quotes (`'''...'''` or `\"\"\"...\"\"\"`).",
-      "example_single": "greeting = 'Hi'",
-      "example_double": "phrase = \"Python is fun\"",
-      "example_multi": "long_text = '''This is a\nmulti-line\nstring.'''"
+      "syntax": "'...' or \"...\" or '''...''' or \"\"\"...\"\"\"",
+      "explanation": "Strings are created by enclosing characters within single or double quotes. **Multi-line strings** can be created using **triple quotes (`'''...'''` or `\"\"\"...\"\"\"`)**.",
+      "example": "greeting = 'Hi'\nphrase = \"Python is fun\"\nlong_text = '''This is a\nmulti-line\nstring.'''"
     },
     "int (introduction)": {
-      "explanation": "The `int` data type represents whole numbers (integers), which can be positive, negative, or zero."
+      "syntax": "integer_value",
+      "explanation": "The **`int` data type** represents **whole numbers (integers)**, which can be positive, negative, or zero.",
+      "example": "count = 10\nnegative_num = -5\nzero = 0"
     },
     "float (introduction)": {
-      "explanation": "The `float` data type represents floating-point numbers, which are numbers with a decimal point."
+      "syntax": "floating_point_value",
+      "explanation": "The **`float` data type** represents **floating-point numbers**, which are numbers with a decimal point.",
+      "example": "temperature = 25.5\npi = 3.14159"
     },
     "bool (introduction)": {
-      "explanation": "The `bool` data type represents boolean values, which can be either `True` or `False`. These are often used in conditional statements."
+      "syntax": "True or False",
+      "explanation": "The **`bool` data type** represents **boolean values**, which can be either `True` or `False`. These are often used in conditional statements.",
+      "example": "is_active = True\nis_empty = False"
     },
     "list (introduction)": {
-      "explanation": "The `list` data type is an ordered, mutable (changeable) sequence of items. Lists are created using square brackets `[]` and items are separated by commas.",
+      "syntax": "[item1, item2, ...]",
+      "explanation": "The **`list` data type** is an **ordered, mutable (changeable) sequence of items**. Lists are created using **square brackets `[]`** and items are separated by commas.",
       "example": "numbers = [1, 2, 3, 4, 5]"
     },
     "list creation": {
       "syntax": "my_list = [item1, item2, ...]",
-      "explanation": "You create a list by enclosing comma-separated items within square brackets.",
+      "explanation": "You create a list by enclosing comma-separated items within **square brackets `[]`**.",
       "example": "fruits = ['apple', 'banana', 'cherry']"
     },
     "tuple (introduction)": {
-      "explanation": "The `tuple` data type is an ordered, immutable (unchangeable) sequence of items. Tuples are created using parentheses `()` and items are separated by commas.",
+      "syntax": "(item1, item2, ...)",
+      "explanation": "The **`tuple` data type** is an **ordered, immutable (unchangeable) sequence of items**. Tuples are created using **parentheses `()`** and items are separated by commas.",
       "example": "coordinates = (10, 20)"
     },
     "tuple creation": {
@@ -680,409 +763,407 @@
       "example": "colors = ('red', 'green', 'blue')\nsingle_item_tuple = (5,)"
     },
     "range (brief introduction)": {
-      "explanation": "The `range()` function creates a sequence of numbers. It's often used with `for` loops to iterate a specific number of times.",
+      "syntax": "range(start, stop, step)",
+      "explanation": "The **`range()` function** creates a **sequence of numbers**. It's often used with `for` loops to iterate a specific number of times.",
       "example": "for i in range(5):\n    print(i) # Output: 0 1 2 3 4"
     },
     "dict (introduction)": {
-      "explanation": "The `dict` (dictionary) data type is an unordered collection of key-value pairs. Dictionaries are created using curly braces `{}` with keys and values separated by colons `:` and pairs separated by commas.",
+      "syntax": "{key1: value1, key2: value2, ...}",
+      "explanation": "The **`dict` (dictionary) data type** is an **unordered collection of key-value pairs**. Dictionaries are created using **curly braces `{}`** with keys and values separated by colons `:` and pairs separated by commas.",
       "example": "person = {'name': 'Alice', 'age': 30}"
     },
     "dict creation": {
       "syntax": "my_dict = {key1: value1, key2: value2, ...}",
-      "explanation": "You create a dictionary by enclosing key-value pairs within curly braces. Each key must be unique and immutable.",
+      "explanation": "You create a dictionary by enclosing key-value pairs within **curly braces `{}`**. Each key must be unique and immutable.",
       "example": "student = {'id': 101, 'major': 'Computer Science'}"
     },
     "set (introduction)": {
-      "explanation": "The `set` data type is an unordered collection of unique elements. Sets are created using curly braces `{}` or the `set()` constructor.",
+      "syntax": "{item1, item2, ...} or set([iterable])",
+      "explanation": "The **`set` data type** is an **unordered collection of unique elements**. Sets are created using **curly braces `{}`** or the **`set()` constructor**.",
       "example": "my_set = {1, 2, 3, 3} # Duplicate 3 will be automatically removed"
     },
     "set creation": {
-      "syntax_literal": "my_set = {item1, item2, ...}",
-      "syntax_constructor": "my_set = set([item1, item2, ...])",
+      "syntax": "my_set = {item1, item2, ...}\n# or\nmy_set = set([item1, item2, ...])",
       "explanation": "You can create a set using curly braces with comma-separated items or by using the `set()` constructor with an iterable (like a list). Sets automatically remove duplicate elements.",
-      "example_literal": "numbers = {1, 2, 3}",
-      "example_constructor": "letters = set('hello') # Output: {'h', 'e', 'l', 'o'}"
+      "example": "numbers = {1, 2, 3}\nletters = set('hello') # Output: {'h', 'e', 'l', 'o'}"
     },
     "set uniqueness": {
-      "explanation": "A key characteristic of sets is that they only store unique elements. Any duplicate values provided during creation are automatically removed."
+      "syntax": "set_with_duplicates = {1, 2, 2, 3}",
+      "explanation": "A key characteristic of sets is that they **only store unique elements**. Any duplicate values provided during creation are automatically removed.",
+      "example": "my_unique_set = {1, 2, 2, 3}\nprint(my_unique_set) # Output: {1, 2, 3}"
     },
     "complex (introduction)": {
-      "explanation": "The `complex` data type represents complex numbers in the form `a + bj`, where `a` is the real part and `b` is the imaginary part, and `j` is the imaginary unit."
+      "syntax": "a + bj",
+      "explanation": "The **`complex` data type** represents **complex numbers** in the form `a + bj`, where `a` is the real part and `b` is the imaginary part, and `j` is the imaginary unit.",
+      "example": "z = 3 + 4j\nprint(z.real) # Output: 3.0\nprint(z.imag) # Output: 4.0"
     },
     "type conversion int()": {
       "syntax": "int(value)",
-      "explanation": "The `int()` function converts a value to an integer. If the value is a float, it truncates towards zero. If it's a string, it must represent a whole number.",
-      "example_float": "integer_value = int(3.14) # Output: 3",
-      "example_string": "integer_from_string = int('100') # Output: 100"
+      "explanation": "The **`int()` function** converts a value to an integer. If the value is a float, it truncates towards zero. If it's a string, it must represent a whole number.",
+      "example": "integer_value_float = int(3.14) # Output: 3\ninteger_from_string = int('100') # Output: 100"
     },
     "type conversion float()": {
       "syntax": "float(value)",
-      "explanation": "The `float()` function converts a value to a floating-point number. If the value is an integer, it's converted to a float with a `.0` decimal part. If it's a string, it must represent a valid floating-point number.",
-      "example_integer": "float_value = float(5) # Output: 5.0",
-      "example_string": "float_from_string = float('2.718') # Output: 2.718"
+      "explanation": "The **`float()` function** converts a value to a floating-point number. If the value is an integer, it's converted to a float with a `.0` decimal part. If it's a string, it must represent a valid floating-point number.",
+      "example": "float_value_integer = float(5) # Output: 5.0\nfloat_from_string = float('2.718') # Output: 2.718"
     },
     "type conversion complex()": {
       "syntax": "complex(real[, imag])",
-      "explanation": "The `complex()` function creates a complex number. You can provide the real and optional imaginary parts. If only one argument is given, it's treated as the real part, and the imaginary part is 0.",
-      "example_real_imag": "complex_number = complex(1, 2) # Output: 1+2j",
-      "example_real_only": "complex_real = complex(5) # Output: 5+0j"
+      "explanation": "The **`complex()` function** creates a complex number. You can provide the real and optional imaginary parts. If only one argument is given, it's treated as the real part, and the imaginary part is 0.",
+      "example": "complex_number = complex(1, 2) # Output: (1+2j)\ncomplex_real = complex(5)      # Output: (5+0j)"
     },
     "random module (basic use)": {
-      "explanation": "The `random` module provides functions for generating random numbers. You need to import it using `import random` to use its functions.",
-      "example_randint": "import random\nrandom_integer = random.randint(1, 10) # Generates a random integer between 1 and 10 (inclusive)"
+      "syntax": "import random\nrandom.randint(a, b)",
+      "explanation": "The **`random` module** provides functions for generating random numbers. You need to **`import random`** to use its functions.",
+      "example": "import random\nrandom_integer = random.randint(1, 10) # Generates a random integer between 1 and 10 (inclusive)\nprint(random_integer)"
     },
     "explicit casting to str()": {
       "syntax": "str(value)",
-      "explanation": "The `str()` function converts a value to its string representation.",
-      "example_integer": "string_value = str(123) # Output: '123'",
-      "example_float": "string_float = str(3.14) # Output: '3.14'",
-      "example_boolean": "string_bool = str(True) # Output: 'True'"
+      "explanation": "The **`str()` function** converts a value to its string representation.",
+      "example": "string_value_integer = str(123) # Output: '123'\nstring_float = str(3.14)       # Output: '3.14'\nstring_bool = str(True)        # Output: 'True'"
     },
     "creating strings (quotes)": {
-      "explanation": "You can create strings in Python using single quotes (`'...'`) or double quotes (`\"...\"`). The choice is often a matter of style, but using one type consistently is recommended. Double quotes are useful when the string contains a single quote, and vice versa.",
-      "example_single": "message = 'Hello'",
-      "example_double": "greeting = \"Hi there\""
+      "syntax": "'...' or \"...\"",
+      "explanation": "You can create strings in Python using **single quotes (`'...'`)** or **double quotes (`\"...\"`)**. The choice is often a matter of style, but using one type consistently is recommended. Double quotes are useful when the string contains a single quote, and vice versa.",
+      "example": "message = 'Hello'\ngreeting = \"Hi there\""
     },
     "creating strings (multiline)": {
-      "syntax": "multi_line_string = '''Line 1\nLine 2\nLine 3'''\n# or\nmulti_line_string = \"\"\"Line 1\nLine 2\nLine 3\"\"\"",
-      "explanation": "Multi-line strings are created using triple quotes (`'''` or `\"\"\"`). They allow you to define strings that span multiple lines without needing escape characters for newlines."
+      "syntax": "'''Line 1\\nLine 2'''\n# or\n\"\"\"Line 1\\nLine 2\"\"\"",
+      "explanation": "**Multi-line strings** are created using **triple quotes (`'''` or `\"\"\"`)**. They allow you to define strings that span multiple lines without needing escape characters for newlines.",
+      "example": "long_description = \"\"\"This is a description\nthat spans multiple lines.\nIt's very useful for long texts.\"\"\""
     },
     "strings as arrays (indexing)": {
-      "explanation": "Strings in Python can be treated as sequences or arrays of characters. You can access individual characters using their index, starting from 0 for the first character. Negative indexing can be used to access characters from the end of the string (-1 is the last character).",
-      "example": "text = \"Python\"\nfirst_char = text[0] # Output: 'P'\nlast_char = text[-1] # Output: 'n'"
+      "syntax": "string[index]",
+      "explanation": "Strings in Python can be treated as **sequences or arrays of characters**. You can access individual characters using their **index**, starting from `0` for the first character. **Negative indexing** can be used to access characters from the end of the string (`-1` is the last character).",
+      "example": "text = \"Python\"\nfirst_char = text[0]  # Output: 'P'\nlast_char = text[-1]  # Output: 'n'"
     },
     "string slicing": {
       "syntax": "string[start:end:step]",
-      "explanation": "String slicing allows you to extract a portion (substring) of a string. `start` is the starting index (inclusive), `end` is the ending index (exclusive), and `step` specifies the increment (default is 1).",
-      "example": "text = \"HelloWorld\"\nsubstring1 = text[2:5] # Output: 'llo'\nsubstring2 = text[:5] # Output: 'Hello'\nsubstring3 = text[5:] # Output: 'World'\nreversed_string = text[::-1] # Output: 'dlroWolleH'"
+      "explanation": "**String slicing** allows you to extract a portion (substring) of a string. `start` is the starting index (inclusive), `end` is the ending index (exclusive), and `step` specifies the increment (default is 1).",
+      "example": "text = \"HelloWorld\"\nsubstring1 = text[2:5]   # Output: 'llo'\nsubstring2 = text[:5]    # Output: 'Hello'\nsubstring3 = text[5:]    # Output: 'World'\nreversed_string = text[::-1] # Output: 'dlroWolleH'"
     },
     "string strip() method": {
       "syntax": "string.strip()",
-      "explanation": "The `strip()` method returns a new string with leading and trailing whitespace (spaces, tabs, newlines) removed.",
-      "example": "text = \"  Hello World  \"\nstripped_text = text.strip() # Output: 'Hello World'"
+      "explanation": "The **`strip()` method** returns a new string with **leading and trailing whitespace** (spaces, tabs, newlines) removed.",
+      "example": "text = \"   Hello World   \"\nstripped_text = text.strip() # Output: 'Hello World'"
     },
     "string lower() method": {
       "syntax": "string.lower()",
-      "explanation": "The `lower()` method returns a new string with all characters converted to lowercase.",
+      "explanation": "The **`lower()` method** returns a new string with all characters converted to **lowercase**.",
       "example": "text = \"Hello World\"\nlower_text = text.lower() # Output: 'hello world'"
     },
     "string upper() method": {
       "syntax": "string.upper()",
-      "explanation": "The `upper()` method returns a new string with all characters converted to uppercase.",
+      "explanation": "The **`upper()` method** returns a new string with all characters converted to **uppercase**.",
       "example": "text = \"Hello World\"\nupper_text = text.upper() # Output: 'HELLO WORLD'"
     },
     "string replace() method": {
       "syntax": "string.replace(old, new)",
-      "explanation": "The `replace()` method returns a new string where all occurrences of the `old` substring are replaced with the `new` substring.",
+      "explanation": "The **`replace()` method** returns a new string where all occurrences of the `old` substring are replaced with the `new` substring.",
       "example": "text = \"Hello World\"\nnew_text = text.replace(\"World\", \"Python\") # Output: 'Hello Python'"
     },
     "string split() method": {
       "syntax": "string.split(separator)",
-      "explanation": "The `split()` method splits a string into a list of substrings based on the specified `separator`. If no separator is provided, it splits on whitespace by default.",
-      "example_space": "text = \"Hello World\"\nwords = text.split() # Output: ['Hello', 'World']",
-      "example_comma": "data = \"apple,banana,cherry\"\nitems = data.split(',') # Output: ['apple', 'banana', 'cherry']"
+      "explanation": "The **`split()` method** splits a string into a **list of substrings** based on the specified `separator`. If no separator is provided, it splits on whitespace by default.",
+      "example": "text = \"Hello World\"\nwords = text.split() # Output: ['Hello', 'World']\ndata = \"apple,banana,cherry\"\nitems = data.split(',') # Output: ['apple', 'banana', 'cherry']"
     },
     "string concatenation (+)": {
       "syntax": "string1 + string2",
-      "explanation": "The `+` operator can be used to concatenate (combine) two or more strings.",
+      "explanation": "The **`+` operator** can be used to **concatenate (combine)** two or more strings.",
       "example": "greeting = \"Hello\"\nname = \"Alice\"\nfull_greeting = greeting + \", \" + name + \"!\" # Output: 'Hello, Alice!'"
     },
     "string format() method": {
       "syntax": "template_string.format(value1, value2, ...)",
-      "explanation": "The `format()` method allows you to format strings by inserting values into placeholders within the string. Placeholders are marked by curly braces `{}`.",
-      "example_positional": "formatted_string = \"Name: {}, Age: {}\".format(\"Bob\", 25) # Output: 'Name: Bob, Age: 25'",
-      "example_named": "formatted_string = \"Name: {name}, Age: {age}\".format(name=\"Charlie\", age=30) # Output: 'Name: Charlie, Age: 30'"
+      "explanation": "The **`format()` method** allows you to format strings by inserting values into placeholders within the string. Placeholders are marked by **curly braces `{}`**.",
+      "example": "formatted_string = \"Name: {}, Age: {}\".format(\"Bob\", 25) # Output: 'Name: Bob, Age: 25'\nformatted_string_named = \"Name: {name}, Age: {age}\".format(name=\"Charlie\", age=30) # Output: 'Name: Charlie, Age: 30'"
     },
     "f-strings (formatted string literals)": {
       "syntax": "f\"This is an f-string with {variable} and {expression=}\"",
-      "explanation": "F-strings (formatted string literals) provide a concise and readable way to embed expressions inside string literals. They start with an `f` or `F` before the opening quote, and expressions are placed inside curly braces `{}`.",
+      "explanation": "**F-strings** (formatted string literals) provide a concise and readable way to **embed expressions inside string literals**. They start with an `f` or `F` before the opening quote, and expressions are placed inside curly braces `{}`.",
       "example": "name = \"David\"\nage = 28\nformatted_string = f\"Name: {name}, Age: {age}\" # Output: 'Name: David, Age: 28'\nexpression_output = f\"{age * 2=}\" # Output: 'age * 2=56' (Python 3.8+)"
     },
     "escape characters": {
       "syntax": "\\n (newline), \\t (tab), \\\\ (backslash), \\\" (double quote), \\' (single quote)",
-      "explanation": "Escape characters are used to represent special characters within strings.",
+      "explanation": "**Escape characters** are used to represent special characters within strings.",
       "example": "text_with_newline = \"First line\\nSecond line\"\ntext_with_tab = \"Item\\tPrice\""
     },
     "boolean values and evaluation": {
-      "explanation": "Python's boolean type (`bool`) can have two values: `True` or `False`. Boolean expressions are often the result of comparisons or logical operations.",
-      "example_true": "is_valid = True",
-      "example_false": "is_empty = False",
-      "example_evaluation": "result = (5 > 3) # result will be True"
+      "syntax": "True or False",
+      "explanation": "Python's boolean type (`bool`) can have two values: **`True` or `False`**. Boolean expressions are often the result of comparisons or logical operations.",
+      "example": "is_valid = True\nis_empty = False\nresult = (5 > 3) # result will be True"
     },
     "comparison operators": {
       "syntax": "== (equal to), != (not equal to), > (greater than), < (less than), >= (greater than or equal to), <= (less than or equal to)",
-      "explanation": "These operators compare two values and return a boolean (`True` or `False`) result based on the comparison.",
-      "example": "x = 5\ny = 10\nprint(x == y) # Output: False\nprint(x < y) # Output: True"
+      "explanation": "These operators compare two values and return a **boolean (`True` or `False`)** result based on the comparison.",
+      "example": "x = 5\ny = 10\nprint(x == y) # Output: False\nprint(x < y)  # Output: True"
     },
     "logical and operator": {
       "syntax": "condition1 and condition2",
-      "explanation": "The `and` operator returns `True` if both `condition1` and `condition2` are `True`; otherwise, it returns `False`.",
-      "example": "age"
+      "explanation": "The **`and` operator** returns `True` if **both** `condition1` and `condition2` are `True`; otherwise, it returns `False`.",
+      "example": "age = 25\nhas_license = True\nif age >= 18 and has_license:\n    print(\"Eligible to drive\")"
     },
     "logical or operator": {
       "syntax": "condition1 or condition2",
-      "explanation": "The `or` operator returns `True` if at least one of `condition1` or `condition2` is `True`; it returns `False` only if both are `False`.",
+      "explanation": "The **`or` operator** returns `True` if **at least one** of `condition1` or `condition2` is `True`; it returns `False` only if both are `False`.",
       "example": "has_license = True\nis_of_age = False\ncan_drive = has_license or is_of_age # can_drive will be True"
     },
     "logical not operator": {
       "syntax": "not condition",
-      "explanation": "The `not` operator inverts the boolean value of `condition`. If `condition` is `True`, `not condition` is `False`, and vice versa.",
+      "explanation": "The **`not` operator** **inverts the boolean value** of `condition`. If `condition` is `True`, `not condition` is `False`, and vice versa.",
       "example": "is_raining = False\nis_sunny = not is_raining # is_sunny will be True"
     },
     "arithmetic + operator": {
       "syntax": "a + b",
-      "explanation": "The addition operator `+` adds two numbers together.",
+      "explanation": "The **addition operator `+`** adds two numbers together.",
       "example": "sum_result = 5 + 3 # sum_result will be 8"
     },
     "arithmetic - operator": {
       "syntax": "a - b",
-      "explanation": "The subtraction operator `-` subtracts the second number from the first.",
+      "explanation": "The **subtraction operator `-`** subtracts the second number from the first.",
       "example": "difference = 10 - 4 # difference will be 6"
     },
     "arithmetic * operator": {
       "syntax": "a * b",
-      "explanation": "The multiplication operator `*` multiplies two numbers.",
+      "explanation": "The **multiplication operator `*`** multiplies two numbers.",
       "example": "product = 6 * 7 # product will be 42"
     },
     "arithmetic / operator": {
       "syntax": "a / b",
-      "explanation": "The division operator `/` divides the first number by the second and always returns a float.",
+      "explanation": "The **division operator `/`** divides the first number by the second and always returns a **float**.",
       "example": "quotient = 15 / 3 # quotient will be 5.0"
     },
     "arithmetic % operator": {
       "syntax": "a % b",
-      "explanation": "The modulus operator `%` returns the remainder of the division of the first number by the second.",
+      "explanation": "The **modulus operator `%`** returns the **remainder** of the division of the first number by the second.",
       "example": "remainder = 17 % 5 # remainder will be 2"
     },
     "arithmetic ** operator": {
       "syntax": "a ** b",
-      "explanation": "The exponentiation operator `**` raises the first number to the power of the second.",
+      "explanation": "The **exponentiation operator `**`** raises the first number to the power of the second.",
       "example": "power = 2 ** 3 # power will be 8"
     },
     "arithmetic // operator": {
       "syntax": "a // b",
-      "explanation": "The floor division operator `//` divides the first number by the second and returns the integer part of the quotient (truncating towards zero).",
-      "example": "floor_quotient = 15 // 3 # floor_quotient will be 5\nfloor_quotient_negative = 16 // 5 # floor_quotient_negative will be 3\nfloor_quotient_negative_result = -16 // 5 # floor_quotient_negative_result will be -4"
+      "explanation": "The **floor division operator `//`** divides the first number by the second and returns the **integer part of the quotient** (truncating towards zero).",
+      "example": "floor_quotient = 15 // 3    # floor_quotient will be 5\nfloor_quotient_negative = -16 // 5 # floor_quotient_negative will be -4"
     },
     "assignment = operator": {
       "syntax": "variable = value",
-      "explanation": "The basic assignment operator `=` assigns the `value` on the right to the `variable` on the left."
+      "explanation": "The basic **assignment operator `=`** assigns the `value` on the right to the `variable` on the left.",
+      "example": "my_age = 25"
     },
     "assignment += operator": {
       "syntax": "variable += value",
-      "explanation": "The `+=` operator adds `value` to `variable` and assigns the result back to `variable` (shorthand for `variable = variable + value`).",
+      "explanation": "The **`+=` operator** adds `value` to `variable` and assigns the result back to `variable` (shorthand for `variable = variable + value`).",
       "example": "count = 5\ncount += 2 # count becomes 7"
     },
     "assignment -= operator": {
       "syntax": "variable -= value",
-      "explanation": "The `-=` operator subtracts `value` from `variable` and assigns the result back to `variable` (shorthand for `variable = variable - value`).",
+      "explanation": "The **`-=` operator** subtracts `value` from `variable` and assigns the result back to `variable` (shorthand for `variable = variable - value`).",
       "example": "score = 10\nscore -= 3 # score becomes 7"
     },
     "assignment *= operator": {
       "syntax": "variable *= value",
-      "explanation": "The `*=` operator multiplies `variable` by `value` and assigns the result back to `variable` (shorthand for `variable = variable * value`).",
+      "explanation": "The **`*=` operator** multiplies `variable` by `value` and assigns the result back to `variable` (shorthand for `variable = variable * value`).",
       "example": "factor = 4\nfactor *= 2 # factor becomes 8"
     },
     "assignment /= operator": {
       "syntax": "variable /= value",
-      "explanation": "The `/=` operator divides `variable` by `value` and assigns the result back to `variable` (shorthand for `variable = variable / value`). The result will always be a float.",
+      "explanation": "The **`/=` operator** divides `variable` by `value` and assigns the result back to `variable` (shorthand for `variable = variable / value`). The result will always be a float.",
       "example": "price = 20\nprice /= 4 # price becomes 5.0"
     },
     "assignment %= operator": {
       "syntax": "variable %= value",
-      "explanation": "The `%=` operator calculates the modulus of `variable` by `value` and assigns the result back to `variable` (shorthand for `variable = variable % value`).",
+      "explanation": "The **`%=` operator** calculates the modulus of `variable` by `value` and assigns the result back to `variable` (shorthand for `variable = variable % value`).",
       "example": "number = 17\nnumber %= 5 # number becomes 2"
     },
     "assignment **= operator": {
       "syntax": "variable **= value",
-      "explanation": "The `**=` operator raises `variable` to the power of `value` and assigns the result back to `variable` (shorthand for `variable = variable ** value`).",
+      "explanation": "The **`**=` operator** raises `variable` to the power of `value` and assigns the result back to `variable` (shorthand for `variable = variable ** value`).",
       "example": "base = 3\nbase **= 2 # base becomes 9"
     },
     "assignment //= operator": {
       "syntax": "variable //= value",
-      "explanation": "The `//=` operator performs floor division of `variable` by `value` and assigns the integer part of the quotient back to `variable` (shorthand for `variable = variable // value`).",
+      "explanation": "The **`//=` operator** performs floor division of `variable` by `value` and assigns the integer part of the quotient back to `variable` (shorthand for `variable = variable // value`).",
       "example": "quantity = 10\nquantity //= 3 # quantity becomes 3"
     },
     "assignment &= operator": {
       "syntax": "variable &= value",
-      "explanation": "The `&=` operator performs bitwise AND on `variable` and `value` and assigns the result back to `variable`.",
-      "example": "a = 5  # 0101 in binary\nb = 3  # 0011 in binary\na &= b # a becomes 1 (0001 in binary)"
+      "explanation": "The **`&=` operator** performs bitwise AND on `variable` and `value` and assigns the result back to `variable`.",
+      "example": "a = 5   # 0101 in binary\nb = 3   # 0011 in binary\na &= b  # a becomes 1 (0001 in binary)"
     },
     "assignment |= operator": {
       "syntax": "variable |= value",
-      "explanation": "The `|=` operator performs bitwise OR on `variable` and `value` and assigns the result back to `variable`.",
-      "example": "a = 5  # 0101 in binary\nb = 3  # 0011 in binary\na |= b # a becomes 7 (0111 in binary)"
+      "explanation": "The **`|=` operator** performs bitwise OR on `variable` and `value` and assigns the result back to `variable`.",
+      "example": "a = 5   # 0101 in binary\nb = 3   # 0011 in binary\na |= b  # a becomes 7 (0111 in binary)"
     },
     "assignment ^= operator": {
       "syntax": "variable ^= value",
-      "explanation": "The `^=` operator performs bitwise XOR on `variable` and `value` and assigns the result back to `variable`.",
-      "example": "a = 5  # 0101 in binary\nb = 3  # 0011 in binary\na ^= b # a becomes 6 (0110 in binary)"
+      "explanation": "The **`^=` operator** performs bitwise XOR on `variable` and `value` and assigns the result back to `variable`.",
+      "example": "a = 5   # 0101 in binary\nb = 3   # 0011 in binary\na ^= b  # a becomes 6 (0110 in binary)"
     },
     "assignment >>= operator": {
       "syntax": "variable >>= value",
-      "explanation": "The `>>=` operator performs right bit shift on `variable` by `value` positions and assigns the result back to `variable`.",
-      "example": "a = 8  # 1000 in binary\na >>= 2 # a becomes 2 (0010 in binary)"
+      "explanation": "The **`>>=` operator** performs right bit shift on `variable` by `value` positions and assigns the result back to `variable`.",
+      "example": "a = 8   # 1000 in binary\na >>= 2 # a becomes 2 (0010 in binary)"
     },
     "assignment <<= operator": {
       "syntax": "variable <<= value",
-      "explanation": "The `<<=` operator performs left bit shift on `variable` by `value` positions and assigns the result back to `variable`.",
-      "example": "a = 1  # 0001 in binary\na <<= 3 # a becomes 8 (1000 in binary)"
+      "explanation": "The **`<<=` operator** performs left bit shift on `variable` by `value` positions and assigns the result back to `variable`.",
+      "example": "a = 1   # 0001 in binary\na <<= 3 # a becomes 8 (1000 in binary)"
     },
     "list creation (again)": {
       "syntax": "my_list = [item1, item2, ...]",
-      "explanation": "Lists are created using square brackets `[]` with comma-separated items. They are ordered and mutable.",
+      "explanation": "Lists are created using **square brackets `[]`** with comma-separated items. They are **ordered and mutable**.",
       "example": "colors = ['red', 'green', 'blue']"
     },
     "list accessing items (indexing)": {
       "syntax": "my_list[index]",
-      "explanation": "You can access individual items in a list using their index, starting from 0 for the first item.",
+      "explanation": "You can access individual items in a list using their **index**, starting from `0` for the first item.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nfirst_fruit = fruits[0] # first_fruit is 'apple'"
     },
     "list accessing items (negative indexing)": {
       "syntax": "my_list[-index]",
-      "explanation": "Negative indexing allows you to access items from the end of the list. `-1` refers to the last item, `-2` to the second-to-last, and so on.",
+      "explanation": "**Negative indexing** allows you to access items from the end of the list. `-1` refers to the last item, `-2` to the second-to-last, and so on.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nlast_fruit = fruits[-1] # last_fruit is 'cherry'"
     },
     "list slicing (again)": {
       "syntax": "my_list[start:end:step]",
-      "explanation": "Slicing allows you to extract a sublist from a list. `start` is inclusive, `end` is exclusive, and `step` is the increment.",
-      "example": "numbers = [1, 2, 3, 4, 5]\nsublist = numbers[1:4] # sublist is [2, 3, 4]\neven_numbers = numbers[::2] # even_numbers is [1, 3, 5]"
+      "explanation": "Slicing allows you to extract a **sublist** from a list. `start` is inclusive, `end` is exclusive, and `step` is the increment.",
+      "example": "numbers = [1, 2, 3, 4, 5]\nsublist = numbers[1:4]   # sublist is [2, 3, 4]\neven_numbers = numbers[::2] # even_numbers is [1, 3, 5]"
     },
     "list changing item values": {
       "syntax": "my_list[index] = new_value",
-      "explanation": "You can change the value of a specific item in a list by assigning a new value to its index.",
+      "explanation": "You can change the value of a specific item in a list by assigning a new value to its index. This is possible because lists are mutable.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nfruits[1] = 'mango' # fruits becomes ['apple', 'mango', 'cherry']"
     },
     "list append() method": {
       "syntax": "my_list.append(item)",
-      "explanation": "The `append()` method adds a new `item` to the end of the list.",
+      "explanation": "The **`append()` method** adds a new `item` to the **end** of the list.",
       "example": "fruits = ['apple', 'banana']\nfruits.append('orange') # fruits becomes ['apple', 'banana', 'orange']"
     },
     "list insert() method": {
       "syntax": "my_list.insert(index, item)",
-      "explanation": "The `insert()` method inserts an `item` at a specific `index` in the list.",
+      "explanation": "The **`insert()` method** inserts an `item` at a specific `index` in the list.",
       "example": "fruits = ['apple', 'banana']\nfruits.insert(1, 'grape') # fruits becomes ['apple', 'grape', 'banana']"
     },
     "list extend() method": {
       "syntax": "my_list.extend(iterable)",
-      "explanation": "The `extend()` method adds all items from an `iterable` (like another list, tuple, or string) to the end of the current list.",
-      "example_list": "list1 = [1, 2]\nlist2 = [3, 4]\nlist1.extend(list2) # list1 becomes [1, 2, 3, 4]",
-      "example_tuple": "list1 = [1, 2]\ntuple1 = (3, 4)\nlist1.extend(tuple1) # list1 becomes [1, 2, 3, 4]"
+      "explanation": "The **`extend()` method** adds all items from an `iterable` (like another list, tuple, or string) to the end of the current list.",
+      "example": "list1 = [1, 2]\nlist2 = [3, 4]\nlist1.extend(list2) # list1 becomes [1, 2, 3, 4]\n\nlist3 = ['a', 'b']\ntuple1 = ('c', 'd')\nlist3.extend(tuple1) # list3 becomes ['a', 'b', 'c', 'd']"
     },
     "list remove() method": {
       "syntax": "my_list.remove(item)",
-      "explanation": "The `remove()` method removes the first occurrence of the specified `item` from the list. It raises a `ValueError` if the item is not found.",
+      "explanation": "The **`remove()` method** removes the **first occurrence** of the specified `item` from the list. It raises a `ValueError` if the item is not found.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nfruits.remove('banana') # fruits becomes ['apple', 'cherry']"
     },
     "list pop() method": {
       "syntax": "my_list.pop([index])",
-      "explanation": "The `pop()` method removes and returns the item at the specified `index`. If no index is provided, it removes and returns the last item.",
-      "example_last": "fruits = ['apple', 'banana', 'cherry']\nremoved_fruit = fruits.pop() # removed_fruit is 'cherry', fruits becomes ['apple', 'banana']",
-      "example_index": "fruits = ['apple', 'banana', 'cherry']\nremoved_fruit = fruits.pop(0) # removed_fruit is 'apple', fruits becomes ['banana', 'cherry']"
+      "explanation": "The **`pop()` method** removes and returns the item at the specified `index`. If no index is provided, it removes and returns the **last item**.",
+      "example": "fruits = ['apple', 'banana', 'cherry']\nremoved_fruit_last = fruits.pop() # removed_fruit_last is 'cherry', fruits becomes ['apple', 'banana']\n\nfruits_new = ['grape', 'mango', 'kiwi']\nremoved_fruit_index = fruits_new.pop(0) # removed_fruit_index is 'grape', fruits_new becomes ['mango', 'kiwi']"
     },
     "list del keyword": {
       "syntax": "del my_list[index]\ndel my_list[start:end]",
-      "explanation": "The `del` keyword is used to delete items at a specific index or a slice of the list.",
-      "example_index": "fruits = ['apple', 'banana', 'cherry']\ndel fruits[1] # fruits becomes ['apple', 'cherry']",
-      "example_slice": "numbers = [1, 2, 3, 4, 5]\ndel numbers[1:3] # numbers becomes [1, 4, 5]"
+      "explanation": "The **`del` keyword** is used to delete items at a specific index or a slice of the list. It can also delete the entire list.",
+      "example": "fruits = ['apple', 'banana', 'cherry']\ndel fruits[1] # fruits becomes ['apple', 'cherry']\n\nnumbers = [1, 2, 3, 4, 5]\ndel numbers[1:3] # numbers becomes [1, 4, 5]"
     },
     "list clear() method": {
       "syntax": "my_list.clear()",
-      "explanation": "The `clear()` method removes all items from the list, making it an empty list.",
+      "explanation": "The **`clear()` method** removes all items from the list, making it an empty list.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nfruits.clear() # fruits becomes []"
     },
     "looping through lists using for": {
       "syntax": "for item in my_list:\n    # Code to process each item",
-      "explanation": "You can iterate through each item in a list using a `for` loop.",
+      "explanation": "You can iterate through each item in a list using a **`for` loop**.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nfor fruit in fruits:\n    print(fruit)"
     },
     "list comprehension (basic)": {
       "syntax": "[expression for item in iterable [if condition]]",
-      "explanation": "List comprehension provides a concise way to create new lists based on existing iterables. It consists of an expression, a `for` clause, and an optional `if` clause.",
+      "explanation": "**List comprehension** provides a concise way to create new lists based on existing iterables. It consists of an expression, a `for` clause, and an optional `if` clause.",
       "example": "numbers = [1, 2, 3, 4, 5]\nsquares = [num**2 for num in numbers] # squares is [1, 4, 9, 16, 25]\neven_squares = [num**2 for num in numbers if num % 2 == 0] # even_squares is [4, 16]"
     },
     "list sort() method": {
       "syntax": "my_list.sort(key=..., reverse=False)",
-      "explanation": "The `sort()` method sorts the list in-place (modifies the original list). You can specify a `key` function for custom sorting and `reverse=True` for descending order.",
-      "example_ascending": "numbers = [3, 1, 4, 1, 5, 9]\nnumbers.sort() # numbers becomes [1, 1, 3, 4, 5, 9]",
-      "example_descending": "numbers = [3, 1, 4, 1, 5, 9]\nnumbers.sort(reverse=True) # numbers becomes [9, 5, 4, 3, 1, 1]"
+      "explanation": "The **`sort()` method** sorts the list **in-place** (modifies the original list). You can specify a `key` function for custom sorting and `reverse=True` for descending order.",
+      "example": "numbers = [3, 1, 4, 1, 5, 9]\nnumbers.sort() # numbers becomes [1, 1, 3, 4, 5, 9]\n\nnames = ['Charlie', 'Alice', 'Bob']\nnames.sort(reverse=True) # names becomes ['Charlie', 'Bob', 'Alice']"
     },
     "list reverse() method": {
       "syntax": "my_list.reverse()",
-      "explanation": "The `reverse()` method reverses the order of elements in the list in-place.",
+      "explanation": "The **`reverse()` method** reverses the order of elements in the list **in-place**.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nfruits.reverse() # fruits becomes ['cherry', 'banana', 'apple']"
     },
     "list copy() method": {
       "syntax": "new_list = my_list.copy()",
-      "explanation": "The `copy()` method returns a shallow copy of the list. Changes to the new list will not affect the original list.",
+      "explanation": "The **`copy()` method** returns a **shallow copy** of the list. Changes to the new list will not affect the original list.",
       "example": "fruits = ['apple', 'banana']\nnew_fruits = fruits.copy()\nnew_fruits.append('orange')\n# fruits is ['apple', 'banana']\n# new_fruits is ['apple', 'banana', 'orange']"
     },
     "list count() method": {
       "syntax": "my_list.count(item)",
-      "explanation": "The `count()` method returns the number of times a specified `item` appears in the list.",
+      "explanation": "The **`count()` method** returns the number of times a specified `item` appears in the list.",
       "example": "numbers = [1, 2, 2, 3, 2]\ncount_of_2 = numbers.count(2) # count_of_2 is 3"
     },
     "list index() method": {
       "syntax": "my_list.index(item[, start[, end]])",
-      "explanation": "The `index()` method returns the index of the first occurrence of the specified `item` in the list. You can optionally specify `start` and `end` indices to search within a sub-section of the list. Raises a `ValueError` if the item is not found.",
+      "explanation": "The **`index()` method** returns the index of the **first occurrence** of the specified `item` in the list. You can optionally specify `start` and `end` indices to search within a sub-section of the list. Raises a `ValueError` if the item is not found.",
       "example": "fruits = ['apple', 'banana', 'cherry']\nindex_of_banana = fruits.index('banana') # index_of_banana is 1"
     },
     "tuple creation (again)": {
       "syntax": "my_tuple = (item1, item2, ...)",
-      "explanation": "Tuples are created using parentheses `()` with comma-separated items. They are ordered and immutable.",
+      "explanation": "Tuples are created using **parentheses `()`** with comma-separated items. They are **ordered and immutable**.",
       "example": "point = (10, 20)"
     },
     "tuple accessing items (indexing)": {
       "syntax": "my_tuple[index]",
-      "explanation": "You can access individual items in a tuple using their index, starting from 0.",
+      "explanation": "You can access individual items in a tuple using their **index**, starting from `0`.",
       "example": "colors = ('red', 'green', 'blue')\nfirst_color = colors[0] # first_color is 'red'"
     },
     "tuple accessing items (negative indexing)": {
       "syntax": "my_tuple[-index]",
-      "explanation": "Negative indexing allows access from the end of the tuple.",
+      "explanation": "**Negative indexing** allows access from the end of the tuple.",
       "example": "colors = ('red', 'green', 'blue')\nlast_color = colors[-1] # last_color is 'blue'"
     },
     "tuple slicing (again)": {
       "syntax": "my_tuple[start:end:step]",
-      "explanation": "Slicing extracts a sub-tuple.",
+      "explanation": "Slicing extracts a **sub-tuple**.",
       "example": "numbers = (1, 2, 3, 4, 5)\nsub_tuple = numbers[1:3] # sub_tuple is (2, 3)"
     },
     "tuple packing": {
       "syntax": "my_tuple = a, b, c",
-      "explanation": "Tuple packing is the process of creating a tuple without using parentheses (though they are often included for clarity).",
+      "explanation": "**Tuple packing** is the process of creating a tuple without explicitly using parentheses (though they are often included for clarity).",
       "example": "x = 10\ny = 20\nz = 30\nmy_tuple = x, y, z # my_tuple is (10, 20, 30)"
     },
     "tuple unpacking": {
       "syntax": "a, b, c = my_tuple",
-      "explanation": "Tuple unpacking allows you to assign the elements of a tuple to individual variables. The number of variables must match the number of elements in the tuple.",
+      "explanation": "**Tuple unpacking** allows you to assign the elements of a tuple to individual variables. The number of variables must match the number of elements in the tuple.",
       "example": "coordinates = (5, 12)\nx, y = coordinates # x is 5, y is 12"
     },
     "when to use tuples": {
-      "explanation": "Tuples are often used for collections of items that should not be modified, such as coordinates, database records, or when returning multiple values from a function."
+      "explanation": "Tuples are often used for collections of items that **should not be modified**, such as coordinates, database records, or when returning multiple values from a function.",
+      "example": "def get_user_info():\n    return (\"Alice\", 30, \"alice@example.com\")\n\nname, age, email = get_user_info()"
     },
     "looping through tuples": {
       "syntax": "for item in my_tuple:\n    # Process item",
-      "explanation": "You can iterate through tuples using a `for` loop, similar to lists.",
+      "explanation": "You can iterate through tuples using a **`for` loop**, similar to lists.",
       "example": "point = (3, 7)\nfor coord in point:\n    print(coord)"
     },
     "tuple count() method": {
       "syntax": "my_tuple.count(item)",
-      "explanation": "Returns the number of occurrences of an item in the tuple.",
+      "explanation": "Returns the **number of occurrences** of an item in the tuple.",
       "example": "numbers = (1, 2, 2, 3, 2)\ncount_of_2 = numbers.count(2) # count_of_2 is 3"
     },
     "tuple index() method": {
       "syntax": "my_tuple.index(item)",
-      "explanation": "Returns the index of the first occurrence of an item.",
+      "explanation": "Returns the **index of the first occurrence** of an item. Raises a `ValueError` if the item is not found.",
       "example": "letters = ('a', 'b', 'c')\nindex_of_b = letters.index('b') # index_of_b is 1"
     },
     "set creation (again - basics)": {
       "syntax": "my_set = {item1, item2, ...}",
-      "explanation": "Sets are unordered collections of unique elements.",
+      "explanation": "Sets are **unordered collections of unique elements**.",
       "example": "unique_numbers = {1, 2, 3, 2} # unique_numbers will be {1, 2, 3}"
     },
     "set accessing items (looping)": {
       "syntax": "for item in my_set:\n    # Process item",
-      "explanation": "You can loop through the elements of a set, but the order is not guaranteed.",
+      "explanation": "You can loop through the elements of a set, but the **order is not guaranteed** because sets are unordered.",
       "example": "my_set = { 'apple', 'banana', 'cherry' }\nfor fruit in my_set:\n    print(fruit)"
     },
     "set add() method": {
@@ -1092,216 +1173,8 @@
     },
     "set update() method": {
       "syntax": "my_set.update(iterable)",
-      "explanation": "Adds multiple items from an `iterable` (like a list or another set) to the set.",
-      "example_list": "fruits = { 'apple', 'banana' }\nmore_fruits = ['cherry', 'mango']\nfruits.update(more_fruits) # fruits becomes { 'apple', 'banana', 'cherry', 'mango' }",
-      "example_set": "set1 = { 1, 2 }\nset2 = { 3, 4 }\nset1.update(set2) # set1 becomes { 1, 2, 3, 4 }"
-    },
-    "set remove() method": {
-      "syntax": "my_set.remove(item)",
-      "explanation": "Removes a specified `item` from the set. Raises a `KeyError` if the item is not found.",
-      "example": "fruits = { 'apple', 'banana', 'cherry' }\nfruits.remove('banana') # fruits becomes { 'apple', 'cherry' }"
-    },
-    "set discard() method": {
-      "syntax": "my_set.discard(item)",
-      "explanation": "Removes a specified `item` from the set if it is present. Does not raise an error if the item is not found.",
-      "example": "fruits = { 'apple', 'banana', 'cherry' }\nfruits.discard('grape') # fruits remains unchanged"
-    },
-    "set pop() method": {
-      "syntax": "my_set.pop()",
-      "explanation": "Removes and returns an arbitrary element from the set. Since sets are unordered, you don't know which element will be removed.",
-      "example": "fruits = { 'apple', 'banana', 'cherry' }\nremoved_fruit = fruits.pop() # removed_fruit could be 'apple', 'banana', or 'cherry'"
-    },
-    "set clear() method (again)": {
-      "syntax": "my_set.clear()",
-      "explanation": "Removes all elements from the set.",
-      "example": "fruits = { 'apple', 'banana', 'cherry' }\nfruits.clear() # fruits becomes set()"
-    },
-    "set del keyword (again)": {
-      "syntax": "del my_set",
-      "explanation": "Deletes the entire set from memory.",
-      "example": "fruits = { 'apple', 'banana', 'cherry' }\ndel fruits"
-    },
-    "set union() method": {
-      "syntax": "set1.union(set2)",
-      "explanation": "Returns a new set containing all elements from both `set1` and `set2`.",
-      "example": "set1 = { 1, 2 }\nset2 = { 2, 3 }\nunited_set = set1.union(set2) # united_set is { 1, 2, 3 }"
-    },
-    "set intersection() method": {
-      "syntax": "set1.intersection(set2)",
-      "explanation": "Returns a new set containing only the elements that are common to both `set1` and `set2`.",
-      "example": "set1 = { 1, 2, 3 }\nset2 = { 2, 3, 4 }\nintersection_set = set1.intersection(set2) # intersection_set is { 2, 3 }"
-    },
-    "set difference() method": {
-      "syntax": "set1.difference(set2)",
-      "explanation": "Returns a new set containing elements that are in `set1` but not in `set2`.",
-      "example": "set1 = { 1, 2, 3 }\nset2 = { 2, 3, 4 }\ndifference_set = set1.difference(set2) # difference_set is { 1 }"
-    },
-    "set symmetric_difference() method": {
-      "syntax": "set1.symmetric_difference(set2)",
-      "explanation": "Returns a new set containing elements that are in either `set1` or `set2`, but not in both.",
-      "example": "set1 = { 1, 2, 3 }\nset2 = { 2, 3, 4 }\nsymmetric_difference_set = set1.symmetric_difference(set2) # symmetric_difference_set is { 1, 4 }"
-    },
-    "set union operator (|)": {
-      "syntax": "set1 | set2",
-      "explanation": "The `|` operator is a shorthand for the `union()` method.",
-      "example": "set1 = { 1, 2 }\nset2 = { 2, 3 }\nunited_set = set1 | set2 # united_set is { 1, 2, 3 }"
-    },
-    "set intersection operator (&)": {
-      "syntax": "set1 & set2",
-      "explanation": "The `&` operator is a shorthand for the `intersection()` method.",
-      "example": "set1 = { 1, 2, 3 }\nset2 = { 2, 3, 4 }\nintersection_set = set1 & set2 # intersection_set is { 2, 3 }"
-    },
-    "set difference operator (-)": {
-      "syntax": "set1 - set2",
-      "explanation": "The `-` operator is a shorthand for the `difference()` method.",
-      "example": "set1 = { 1, 2, 3 }\nset2 = { 2, 3, 4 }\ndifference_set = set1 - set2 # difference_set is { 1 }"
-    },
-    "set symmetric difference operator (^)": {
-      "syntax": "set1 ^ set2",
-      "explanation": "The `^` operator is a shorthand for the `symmetric_difference()` method.",
-      "example": "set1 = { 1, 2, 3 }\nset2 = { 2, 3, 4 }\nsymmetric_difference_set = set1 ^ set2 # symmetric_difference_set is { 1, 4 }"
-    },
-    "dictionary creation (again - basics)": {
-      "syntax": "my_dict = {key1: value1, key2: value2, ...}",
-      "explanation": "Dictionaries store data as key-value pairs. Keys must be unique and immutable.",
-      "example": "person = {'name': 'Alice', 'age': 30}"
-    },
-    "dictionary accessing items": {
-      "syntax": "my_dict[key]",
-      "explanation": "You can access the value associated with a key using square brackets. Raises a `KeyError` if the key does not exist.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nname = person['name'] # name is 'Alice'"
-    },
-    "dictionary changing item values": {
-      "syntax": "my_dict[key] = new_value",
-      "explanation": "You can change the value associated with an existing key.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nperson['age'] = 31 # person is now {'name': 'Alice', 'age': 31}"
-    },
-    "dictionary adding new items": {
-      "syntax": "my_dict[new_key] = new_value",
-      "explanation": "You can add new key-value pairs to a dictionary by assigning a value to a new key.",
-      "example": "person = {'name': 'Alice'}\nperson['city'] = 'New York' # person is now {'name': 'Alice', 'city': 'New York'}"
-    },
-    "dictionary keys() method": {
-      "syntax": "my_dict.keys()",
-      "explanation": "Returns a view object that displays a list of all the keys in the dictionary.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nkeys = person.keys() # keys is dict_keys(['name', 'age'])"
-    },
-    "dictionary values() method": {
-      "syntax": "my_dict.values()",
-      "explanation": "Returns a view object that displays a list of all the values in the dictionary.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nvalues = person.values() # values is dict_values(['Alice', 30])"
-    },
-    "dictionary items() method": {
-      "syntax": "my_dict.items()",
-      "explanation": "Returns a view object that displays a list of all key-value pairs (as tuples) in the dictionary.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nitems = person.items() # items is dict_items([('name', 'Alice'), ('age', 30)])"
-    },
-    "dictionary get() method": {
-      "syntax": "my_dict.get(key[, default])",
-      "explanation": "Returns the value for the specified `key`. If the key does not exist, it returns `default` (if provided) or `None`.",
-      "example_exists": "person = {'name': 'Alice', 'age': 30}\nname = person.get('name') # name is 'Alice'",
-      "example_not_exists": "city = person.get('city') # city is None\ncountry = person.get('country', 'USA') # country is 'USA'"
-    },
-    "dictionary update() method": {
-      "syntax": "my_dict.update(other_dict)\nmy_dict.update(key=value)",
-      "explanation": "Updates the dictionary with key-value pairs from `other_dict` or from keyword arguments. Existing keys are overwritten, and new keys are added.",
-      "example_dict": "person = {'name': 'Alice'}\ninfo = {'age': 30, 'city': 'New York'}\nperson.update(info) # person is {'name': 'Alice', 'age': 30, 'city': 'New York'}",
-      "example_kwargs": "person = {'name': 'Alice'}\nperson.update(age=30, country='USA') # person is {'name': 'Alice', 'age': 30, 'country': 'USA'}"
-    },
-    "dictionary pop() method": {
-      "syntax": "my_dict.pop(key[, default])",
-      "explanation": "Removes and returns the value for the specified `key`. If the key does not exist, it raises a `KeyError` (unless a `default` value is provided).",
-      "example_exists": "person = {'name': 'Alice', 'age': 30}\nage = person.pop('age') # age is 30, person is {'name': 'Alice'}",
-      "example_not_exists_default": "city = person.pop('city', 'Unknown') # city is 'Unknown', person remains {'name': 'Alice'}"
-    },
-    "dictionary popitem() method": {
-      "syntax": "my_dict.popitem()",
-      "explanation": "Removes and returns the last inserted key-value pair as a tuple. In versions before Python 3.7, the order of items was not guaranteed.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nlast_item = person.popitem() # last_item could be ('age', 30) or ('name', 'Alice')"
-    },
-    "dictionary clear() method (again)": {
-      "syntax": "my_dict.clear()",
-      "explanation": "Removes all items from the dictionary.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nperson.clear() # person is {}"
-    },
-    "dictionary copy() method (again)": {
-      "syntax": "new_dict = my_dict.copy()",
-      "explanation": "Returns a shallow copy of the dictionary.",
-      "example": "person = {'name': 'Alice'}\nnew_person = person.copy()\nnew_person['age'] = 30\n# person remains {'name': 'Alice'}"
-    },
-    "looping through dictionary keys": {
-      "syntax": "for key in my_dict:",
-      "explanation": "You can iterate through the keys of a dictionary directly in a `for` loop.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nfor key in person:\n    print(key) # Output: name, age"
-    },
-    "looping through dictionary values": {
-      "syntax": "for value in my_dict.values():",
-      "explanation": "You can iterate through the values of a dictionary using the `values()` method.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nfor value in person.values():\n    print(value) # Output: Alice, 30"
-    },
-    "looping through dictionary key-value pairs": {
-      "syntax": "for key, value in my_dict.items():",
-      "explanation": "You can iterate through both keys and values using the `items()` method, which returns key-value pairs as tuples.",
-      "example": "person = {'name': 'Alice', 'age': 30}\nfor key, value in person.items():\n    print(f\"{key}: {value}\") # Output: name: Alice, age: 30"
-    },
-    "array module introduction": {
-      "explanation": "The `array` module in Python provides support for creating arrays of numeric data. They are more memory-efficient than lists when dealing with large sequences of numbers of the same type."
-    },
-    "array creation with type codes": {
-      "syntax": "import array\nmy_array = array.array(typecode, initializer)",
-      "explanation": "To create an array, you need to import the `array` module and use the `array.array()` constructor. `typecode` is a character representing the data type of the array elements (e.g., 'i' for signed integer, 'f' for float). `initializer` is an iterable containing the initial values.",
-      "example_integer": "import array\nnumbers = array.array('i', [1, 2, 3, 4, 5])",
-      "example_float": "import array\nfloats = array.array('f', [1.0, 2.5, 3.7])"
-    },
-    "array accessing elements": {
-      "syntax": "my_array[index]",
-      "explanation": "You can access individual elements of an array using their index, just like with lists.",
-      "example": "import array\nnumbers = array.array('i', [10, 20, 30])\nfirst_element = numbers[0] # first_element is 10"
-    },
-    "array append() method": {
-      "syntax": "my_array.append(value)",
-      "explanation": "Adds a new `value` to the end of the array (the value must be of the array's specified type).",
-      "example": "import array\nnumbers = array.array('i', [1, 2])\nnumbers.append(3) # numbers becomes array('i', [1, 2, 3])"
-    },
-    "array insert() method": {
-      "syntax": "my_array.insert(index, value)",
-      "explanation": "Inserts a new `value` at a specified `index` in the array.",
-      "example": "import array\nnumbers = array.array('i', [1, 3])\nnumbers.insert(1, 2) # numbers becomes array('i', [1, 2, 3])"
-    },
-    "array pop() method": {
-      "syntax": "my_array.pop([index])",
-      "explanation": "Removes and returns the element at the specified `index` (defaults to the last element).",
-      "example": "import array\nnumbers = array.array('i', [1, 2, 3])\nlast_element = numbers.pop() # last_element is 3, numbers becomes array('i', [1, 2])"
-    },
-    "array remove() method": {
-      "syntax": "my_array.remove(value)",
-      "explanation": "Removes the first occurrence of the specified `value`. Raises a `ValueError` if the value is not found.",
-      "example": "import array\nnumbers = array.array('i', [1, 2, 2, 3])\nnumbers.remove(2) # numbers becomes array('i', [1, 2, 3])"
-    },
-    "for loop": {
-    "syntax": "for item in iterable:\n    # Code to execute for each item",
-    "explanation": "The `for` loop in Python is used to iterate over a sequence (like a list, tuple, string) or other iterable objects. It executes the indented block of code for each item in the sequence.",
-    "example": "fruits = ['apple', 'banana', 'cherry']\nfor fruit in fruits:\n    print(fruit)"
-    },
-    "while loop": {
-      "syntax": "while condition:\n    # Code to execute while the condition is true",
-      "explanation": "The `while` loop in Python executes a block of code as long as a specified condition is true. It's important to ensure the condition eventually becomes false to avoid an infinite loop.",
-      "example": "count = 0\nwhile count < 5:\n    print(count)\n    count += 1"
-    },
-    "if statement": {
-    "syntax": "if condition:\n    # Code to execute if the condition is true",
-    "explanation": "The `if` statement in Python is used for conditional execution. It checks if a condition is true, and if it is, it executes the indented block of code.",
-    "example": "x = 10\nif x > 5:\n    print(\"x is greater than 5\")"
-    },
-    "else statement": {
-      "syntax": "if condition:\n    # Code to execute if the condition is true\nelse:\n    # Code to execute if the condition is false",
-      "explanation": "The `else` statement is used in conjunction with the `if` statement. It provides a block of code that is executed if the `if` condition is false.",
-      "example": "x = 3\nif x > 5:\n    print(\"x is greater than 5\")\nelse:\n    print(\"x is not greater than 5\")"
-    },
-    "elif statement": {
-      "syntax": "if condition1:\n    # Code to execute if condition1 is true\nelif condition2:\n    # Code to execute if condition1 is false and condition2 is true\nelse:\n    # Code to execute if both condition1 and condition2 are false",
-      "explanation": "The `elif` (else if) statement allows you to check multiple conditions in sequence. If the preceding `if` or `elif` conditions are false, the `elif` condition is evaluated. You can have multiple `elif` statements.",
-      "example": "grade = 75\nif grade >= 90:\n    print(\"A\")\nelif grade >= 80:\n    print(\"B\")\nelif grade >= 70:\n    print(\"C\")\nelse:\n    print(\"D\")"
+      "explanation": "The **`update()` method** adds all items from an `iterable` (like a list, tuple, or another set) to the current set.",
+      "example": "set1 = {1, 2}\nset2 = {3, 4}\nset1.update(set2) # set1 becomes {1, 2, 3, 4}\n\nset3 = {'a', 'b'}\nlist1 = ['c', 'd']\nset3.update(list1) # set3 becomes {'a', 'b', 'c', 'd'}"
     }
   }
 }

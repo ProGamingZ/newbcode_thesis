@@ -1,4 +1,3 @@
-// components/Cody.tsx
 import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, Text, TextInput, Button, ScrollView } from 'react-native';
 import { useTheme } from '@/theme/ThemeContext';
@@ -7,7 +6,7 @@ interface CodyProps {
   onClose: () => void;
 }
 interface SyntaxMap {
-  [key: string]: { syntax?: string; explanation?: string; example?: string } | undefined;
+  [key: string]: { syntax?: string; explanation?: string; example?: string; output?: string } | undefined;
 }
 
 let offlineData: any = null;
@@ -20,7 +19,8 @@ try {
   loadingError = "Error: Could not load AI model data. Check console.";
 }
 
-const Cody: React.FC<CodyProps> = ({ onClose }) => {
+const Cody: React.FC<CodyProps> = ({ onClose }) =>
+{
   const [query, setQuery] = useState('');
   const [response, setResponse] = useState('');
   const { theme } = useTheme();
@@ -95,15 +95,14 @@ const Cody: React.FC<CodyProps> = ({ onClose }) => {
       return;
     }
 
-    const predictedLanguage = classifyLanguage(query);
-    if (!predictedLanguage) {
-      setResponse("Could not determine the programming language.");
-      return;
-    }
-
     const lowerCaseQuery = query.toLowerCase().trim();
     const queryTokens = lowerCaseQuery.split(/\s+/).filter(token => token.length > 0);
-    let bestMatchResponse: { syntax?: string; explanation?: string; example?: string } | undefined = undefined;
+
+    const containsJavaKeyword = queryTokens.includes('java');
+    const containsPythonKeyword = queryTokens.includes('python');
+
+    const predictedLanguage = classifyLanguage(query);
+    let bestMatchResponse: { syntax?: string; explanation?: string; example?: string; output?: string } | undefined = undefined;
     let bestMatchScore = -1;
 
     const checkSyntaxMap = (syntaxMap: SyntaxMap) => {
@@ -112,7 +111,6 @@ const Cody: React.FC<CodyProps> = ({ onClose }) => {
         if (entry) {
           const keyTokens = key.toLowerCase().split(/\s+/).filter(token => token.length > 0);
           const score = calculateMatchScore(keyTokens, queryTokens);
-          console.log(`Language: ${predictedLanguage}, Key: ${key}, Key Tokens: ${JSON.stringify(keyTokens)}, Score: ${score}, Best Score: ${bestMatchScore}`);
           if (score > bestMatchScore) {
             bestMatchScore = score;
             bestMatchResponse = entry;
@@ -123,22 +121,29 @@ const Cody: React.FC<CodyProps> = ({ onClose }) => {
 
     if (predictedLanguage === 'Java') {
       checkSyntaxMap(offlineData.java_syntax);
-      console.log("Predicted Language:", predictedLanguage);
-      console.log("Best Match Response (Java):", bestMatchResponse);
     } else if (predictedLanguage === 'Python') {
       checkSyntaxMap(offlineData.python_syntax);
-      console.log("Predicted Language:", predictedLanguage);
-      console.log("Best Match Response (Python):", bestMatchResponse);
     }
 
-    if (bestMatchResponse) {
-      let responseText = "";
-      if (bestMatchResponse.syntax) responseText += `Syntax: ${bestMatchResponse.syntax}\n`;
-      if (bestMatchResponse.explanation) responseText += `Explanation: ${bestMatchResponse.explanation}\n`;
-      if (bestMatchResponse.example) responseText += `Example: ${bestMatchResponse.example}`;
-      setResponse(responseText || "No details found for this query.");
+    const scoreThreshold = 0.2; // Adjust this value to set the minimum score for a "good" match
+
+    // Logic to determine the final response
+    if (bestMatchScore >= scoreThreshold && bestMatchResponse) {
+        let responseText = "";
+        if (bestMatchResponse.syntax) responseText += `Syntax:\n ${bestMatchResponse.syntax}\n`;
+        if (bestMatchResponse.explanation) responseText += `\nExplanation:\n ${bestMatchResponse.explanation}\n`;
+        if (bestMatchResponse.example) responseText += `\nExample:\n ${bestMatchResponse.example}`;
+        if (bestMatchResponse.output) responseText += `\nOutput:\n ${bestMatchResponse.output}`;
+        setResponse(responseText);
     } else {
-      setResponse(`Sorry, I don't have specific syntax for that in ${predictedLanguage} yet.`);
+        // No strong match found based on scoreThreshold
+        if (!(containsJavaKeyword || containsPythonKeyword)) {
+            // No explicit language keyword in query AND no strong match
+            setResponse("It seems you're asking about syntax, but I'm not sure which language. Could you please specify Java or Python?");
+        } else {
+            // User specified a language (or one was predicted), but no strong match was found within that language's syntax
+            setResponse(`Sorry, no match found for "${query}" in ${predictedLanguage || 'the specified language'} lesson modules. Please try rephrasing query.`);
+        }
     }
   }, [query, loadingError, classifyLanguage, preprocess, offlineData, calculateMatchScore]);
 
@@ -210,28 +215,27 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 44,
-    borderWidth: 1,
     borderRadius: 8,
+    paddingHorizontal: 12,
     marginBottom: 15,
-    paddingHorizontal: 10,
-    fontSize: 16,
+    borderWidth: 1,
   },
   responseContainer: {
-    maxHeight: 400,
-    minHeight: 50,
-    borderWidth: 1,
-    borderRadius: 8,
+    marginTop: 15,
     padding: 12,
-    marginTop: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    minHeight: 100,
+    maxHeight: 300, // Adjust as needed
   },
   responseText: {
-    fontSize: 16,
-    lineHeight: 22,
+    lineHeight: 20,
+    fontSize: 14,
   },
   errorText: {
     fontSize: 16,
     textAlign: 'center',
-    marginBottom: 15,
+    marginBottom: 20,
   },
 });
 
