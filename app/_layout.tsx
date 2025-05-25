@@ -1,19 +1,21 @@
 import 'expo-dev-client';
 
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react'; // Added useEffect
 import { Stack } from "expo-router";
-import {LogBox,StatusBar,StyleSheet,View,TouchableOpacity,PanResponder,Animated,useWindowDimensions,Image,} from "react-native";
+import { LogBox, StatusBar, StyleSheet, View, TouchableOpacity, PanResponder, Animated, useWindowDimensions, Image, } from "react-native";
 import { ThemeProvider, useTheme } from '@/theme/ThemeContext';
 import Cody from '../components/Cody'; // Assuming your bot component is named Cody
+import SplashScreen from '@/components/splashscreen'; // Import your new SplashScreen component
 
 LogBox.ignoreAllLogs(true);
 
 // Define bubble dimensions (should match your styles)
 const BUBBLE_SIZE = 60;
 
-function RootLayoutInner() {
+// This component will now contain the main app logic and the draggable bot
+function RootLayoutInnerContent(): JSX.Element { // Renamed and explicitly typed
   const { theme } = useTheme();
-  const [isBotVisible, setIsBotVisible] = useState(false);
+  const [isBotVisible, setIsBotVisible] = useState<boolean>(false); // Explicitly typed
   const { width: screenWidth, height: screenHeight } = useWindowDimensions(); // Get screen dimensions
 
   const toggleBotVisibility = useCallback(() => {
@@ -190,10 +192,30 @@ function RootLayoutInner() {
   );
 }
 
-export default function RootLayout() {
+// This is your main RootLayout that controls the initial render
+export default function RootLayout(): JSX.Element {
+  const [showSplash, setShowSplash] = useState<boolean>(true);
+
+  useEffect(() => {
+    // The SplashScreen component will handle the navigation away after its duration.
+    // We just need to initially render it.
+    // Once the SplashScreen navigates, the router will handle the new route,
+    // and this RootLayout will re-render, effectively showing the main content.
+    // We don't need a direct timer here to set showSplash to false.
+    // The navigation from SplashScreen takes care of the transition.
+  }, []);
+
   return (
     <ThemeProvider>
-      <RootLayoutInner />
+      {/* Conditionally render SplashScreen or the main app content */}
+      {showSplash ? (
+        // Render the SplashScreen. It will navigate to '/index' after 4 seconds.
+        // We pass a prop to inform this layout when the splash is done.
+        <SplashScreen onFinish={() => setShowSplash(false)} />
+      ) : (
+        // Once the SplashScreen navigates, this content will be rendered.
+        <RootLayoutInnerContent />
+      )}
     </ThemeProvider>
   );
 }

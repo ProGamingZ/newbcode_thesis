@@ -4,7 +4,7 @@
     "slug": "NewbCode",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/NewbCode_Logo.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/NewbCode_Logo.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#1a1a1a"
       },
       "package": "com.yuoritz.newbcode"

@@ -130,10 +130,10 @@ const Cody: React.FC<CodyProps> = ({ onClose }) =>
     // Logic to determine the final response
     if (bestMatchScore >= scoreThreshold && bestMatchResponse) {
         let responseText = "";
-        if (bestMatchResponse.syntax) responseText += `Syntax:\n ${bestMatchResponse.syntax}\n`;
-        if (bestMatchResponse.explanation) responseText += `\nExplanation:\n ${bestMatchResponse.explanation}\n`;
-        if (bestMatchResponse.example) responseText += `\nExample:\n ${bestMatchResponse.example}`;
-        if (bestMatchResponse.output) responseText += `\nOutput:\n ${bestMatchResponse.output}`;
+        if (bestMatchResponse.syntax) responseText += `Syntax:\n${bestMatchResponse.syntax}\n`;
+        if (bestMatchResponse.explanation) responseText += `\nExplanation:\n${bestMatchResponse.explanation}\n`;
+        if (bestMatchResponse.example) responseText += `\nExample:\n${bestMatchResponse.example}\n`;
+        if (bestMatchResponse.output) responseText += `\nOutput:\n${bestMatchResponse.output}`;
         setResponse(responseText);
     } else {
         // No strong match found based on scoreThreshold
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     minHeight: 100,
-    maxHeight: 300, // Adjust as needed
+    // maxHeight: 300, // Adjust as needed
   },
   responseText: {
     lineHeight: 20,
