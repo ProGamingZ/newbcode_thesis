@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "/assets/images/NewbCode_Logo.png",
+        "foregroundImage": "./assets/images/NewbCode_Logo.png",
         "backgroundColor": "#1a1a1a"
       },
       "package": "com.yuoritz.newbcode"
