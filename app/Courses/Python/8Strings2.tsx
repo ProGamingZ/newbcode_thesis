@@ -1,45 +1,15 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { useTheme } from '@/theme/ThemeContext';
 import ScreenTitle from '@/components/PageTitle';
 import BackButton from '@/components/BackButton';
-import { FontAwesome } from '@expo/vector-icons';
-
-interface DropdownProps {
-  title: string;
-  content: React.ReactNode;
-}
-
-const DropdownBlock: React.FC<DropdownProps> = ({ title, content }) => {
-  const { theme } = useTheme();
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
-  };
-
-  return (
-    <View style={[styles.dropdownBlock, { backgroundColor: theme.colors.accent }]}>
-      <TouchableOpacity style={styles.dropdownHeader} onPress={toggleVisibility}>
-        <Text style={[styles.dropdownTitle, { color: theme.colors.textPrimary }]}>{title}</Text>
-        <FontAwesome
-          name={isVisible ? 'chevron-up' : 'chevron-down'}
-          size={18}
-          color={theme.colors.textPrimary}
-        />
-      </TouchableOpacity>
-      {isVisible && (
-        <View style={styles.dropdownContent}>
-          {content}
-        </View>
-      )}
-    </View>
-  );
-};
+// import NextButton from '@/components/NextButton';
+import { Link } from 'expo-router';
 
 export default function PythonStringsPart2Page() {
   const { theme } = useTheme();
 
+  const accentColor = theme.colors.accent;
   const primaryColor = theme.colors.textPrimary;
   const secondaryColor = theme.colors.textSecondary;
   const codeBackgroundColor = theme.colors.codeBackground;
@@ -55,127 +25,47 @@ export default function PythonStringsPart2Page() {
         <BackButton style={styles.backButton} />
         <ScreenTitle title="Python Strings - Part 2" />
 
-        <DropdownBlock
-          title="replace() Method"
-          content={
-            <View>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                The <Text style={[styles.keyword, { color: primaryColor }]}>replace()</Text> method replaces all occurrences of a specified substring with another substring.
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>original_text</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"Hello World"</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>replaced_text</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>original_text</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>replace</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}"World", "Python")</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>replaced_text</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "Hello Python"</Text>
-              </Text>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                You can also specify the number of replacements to make as a third argument (optional).
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>text_with_many</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"apple banana apple cherry apple"</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>replace_once</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>text_with_many</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>replace</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}"apple", "orange", 1)</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>replace_once</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "orange banana apple cherry apple"</Text>
-              </Text>
-            </View>
-          }
-        />
+        <View style={[styles.section, { backgroundColor: accentColor }]}>
+          <Text style={[styles.sectionTitle, { color: primaryColor }]}>Python Strings - Part 2 (Common Methods)</Text>
+          {/* ... other content ... */}
 
-        <DropdownBlock
-          title="split() Method"
-          content={
-            <View>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                The <Text style={[styles.keyword, { color: primaryColor }]}>split()</Text> method splits a string into a list of substrings based on a specified delimiter. If no delimiter is specified, it defaults to whitespace.
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>sentence</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"Hello,World,Python"</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>split_comma</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>sentence</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>split</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}",")</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>split_comma</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: ['Hello', 'World', 'Python']</Text>
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>paragraph</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"This is a sentence. Another sentence."</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>split_space</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>paragraph</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>split</Text><Text style={[styles.operator, { color: primaryColor }]}>()</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>split_space</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: ['This', 'is', 'a', 'sentence.', 'Another', 'sentence.']</Text>
-              </Text>
-            </View>
-          }
-        />
+          <Text style={[styles.subSectionTitle, { color: primaryColor }]}>replace()</Text>
+          <Text style={[styles.sectionContent, { color: primaryColor }]}>
+            The <Text style={[styles.keyword, { color: primaryColor }]}>replace()</Text> method replaces all occurrences of a specified substring with another substring.
+          </Text>
+          <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
+            <Text style={[styles.variable, { color: primaryColor }]}>original_text</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"Hello World"</Text>{'\n'}
+            <Text style={[styles.variable, { color: primaryColor }]}>replaced_text</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>original_text</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>replace</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}"World", "Python")</Text>{'\n'}
+            <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>replaced_text</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "Hello Python"</Text>
+          </Text>
+          <Text style={[styles.sectionContent, { color: primaryColor }]}>
+            You can also specify the number of replacements to make as a third argument (optional).
+          </Text>
+          <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
+            <Text style={[styles.variable, { color: primaryColor }]}>text_with_many</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"apple banana apple cherry apple"</Text>{'\n'}
+            <Text style={[styles.variable, { color: primaryColor }]}>replace_once</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>text_with_many</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>replace</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}"apple", "orange", 1)</Text>{'\n'}
+            <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>replace_once</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "orange banana apple cherry apple"</Text>
+          </Text>
 
-        <DropdownBlock
-          title="lower() Method"
-          content={
-            <View>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                The <Text style={[styles.keyword, { color: primaryColor }]}>lower()</Text> method returns a new string where all characters in the original string are converted to lowercase.
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>mixed_case</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"PyThOn"</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>lower_case</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>mixed_case</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>lower</Text><Text style={[styles.operator, { color: primaryColor }]}>()</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>lower_case</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "python"</Text>
-              </Text>
-            </View>
-          }
-        />
+          <Text style={[styles.subSectionTitle, { color: primaryColor }]}>split()</Text>
+          <Text style={[styles.sectionContent, { color: primaryColor }]}>
+            The <Text style={[styles.keyword, { color: primaryColor }]}>split()</Text> method splits a string into a list of substrings based on a specified delimiter. If no delimiter is specified, it defaults to whitespace.
+          </Text>
+          <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
+            <Text style={[styles.variable, { color: primaryColor }]}>sentence</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"Hello,World,Python"</Text>{'\n'}
+            <Text style={[styles.variable, { color: primaryColor }]}>split_comma</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>sentence</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>split</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}",")</Text>{'\n'}
+            <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>split_comma</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: ['Hello', 'World', 'Python']</Text>
+          </Text>
+          <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
+            <Text style={[styles.variable, { color: primaryColor }]}>paragraph</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"This is a sentence. Another sentence."</Text>{'\n'}
+            <Text style={[styles.variable, { color: primaryColor }]}>split_space</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>paragraph</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>split</Text><Text style={[styles.operator, { color: primaryColor }]}>()</Text>{'\n'}
+            <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>split_space</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: ['This', 'is', 'a', 'sentence.', 'Another', 'sentence.']</Text>
+          </Text>
+        </View>
 
-        <DropdownBlock
-          title="upper() Method"
-          content={
-            <View>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                The <Text style={[styles.keyword, { color: primaryColor }]}>upper()</Text> method returns a new string where all characters in the original string are converted to uppercase.
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>lower_case_text</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"python"</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>upper_case_text</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>lower_case_text</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>upper</Text><Text style={[styles.operator, { color: primaryColor }]}>()</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>upper_case_text</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "PYTHON"</Text>
-              </Text>
-            </View>
-          }
-        />
-
-        <DropdownBlock
-          title="strip() Method"
-          content={
-            <View>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                The <Text style={[styles.keyword, { color: primaryColor }]}>strip()</Text> method removes leading and trailing whitespace (spaces, tabs, newlines) from a string.
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>text_with_space</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"   Hello World   "</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>stripped_text</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>text_with_space</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>strip</Text><Text style={[styles.operator, { color: primaryColor }]}>()</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>stripped_text</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "Hello World"</Text>
-              </Text>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                You can also specify characters to remove by passing them as an argument to the <Text style={[styles.keyword, { color: primaryColor }]}>strip()</Text> method.
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>text_with_chars</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>",,,Python!!!"</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>stripped_chars</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>text_with_chars</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>strip</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}",!")</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>stripped_chars</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: "Python"</Text>
-              </Text>
-            </View>
-          }
-        />
-
-        <DropdownBlock
-          title="find() Method"
-          content={
-            <View>
-              <Text style={[styles.dropdownContentText, { color: primaryColor }]}>
-                The <Text style={[styles.keyword, { color: primaryColor }]}>find()</Text> method returns the index of the first occurrence of a specified substring. If the substring is not found, it returns -1.
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>my_string</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.value, { color: secondaryColor }]}>"Hello Python"</Text>{'\n'}
-                <Text style={[styles.variable, { color: primaryColor }]}>index</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>my_string</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>find</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}"Python")</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>index</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: 6</Text>
-              </Text>
-              <Text style={[styles.codeBlock, { backgroundColor: codeBackgroundColor }]}>
-                <Text style={[styles.variable, { color: primaryColor }]}>not_found</Text> <Text style={[styles.operator, { color: primaryColor }]}>=</Text> <Text style={[styles.variable, { color: primaryColor }]}>my_string</Text><Text style={[styles.operator, { color: primaryColor }]}>.</Text><Text style={[styles.keyword, { color: primaryColor }]}>find</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}"Java")</Text>{'\n'}
-                <Text style={[styles.keyword, { color: primaryColor }]}>print</Text><Text style={[styles.operator, { color: primaryColor }]}>({')'}</Text><Text style={[styles.variable, { color: primaryColor }]}>not_found</Text><Text style={[styles.operator, { color: primaryColor }]}>)</Text> <Text style={styles.comment}># Output: -1</Text>
-              </Text>
-            </View>
-          }
-        />
-
+        {/* <Link href="/PythonStringsPart3Page" asChild>
+          <NextButton title="Next: Python Strings - Part 3" />
+        </Link> */}
         <BackButton style={styles.backButton} />
       </View>
     </ScrollView>
@@ -185,70 +75,63 @@ export default function PythonStringsPart2Page() {
 const styles = StyleSheet.create({
   scrollContentContainer: {
     flexGrow: 1,
-    paddingVertical: 20,
+    paddingVertical: 40,
     alignItems: 'center',
   },
   container: {
     flex: 1,
     width: '90%',
-    paddingHorizontal: 15,
+    paddingHorizontal: 20,
     alignItems: 'flex-start',
   },
   backButton: {
     position: 'absolute',
-    top: 20,
-    left: 10,
-    zIndex: 10,
+    top: 40,
+    left: 20,
   },
-  dropdownBlock: {
-    borderRadius: 10,
-    marginBottom: 15,
+  section: {
+    borderRadius: 15,
+    padding: 15,
+    marginBottom: 20,
     width: '100%',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.15,
-    shadowRadius: 3,
-    elevation: 2,
-    overflow: 'hidden',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
   },
-  dropdownHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 12,
-  },
-  dropdownTitle: {
-    fontSize: 17,
+  sectionTitle: {
+    fontSize: 20,
     fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#000', // Fallback color
   },
-  dropdownContent: {
-    padding: 12,
-    paddingTop: 0,
-  },
-  dropdownContentText: {
-    fontSize: 15,
-    lineHeight: 20,
-    marginBottom: 6,
+  sectionContent: {
+    fontSize: 16,
+    lineHeight: 22,
+    marginBottom: 8,
+    color: '#000', // Fallback color
     textAlign: 'justify',
   },
   subSectionTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 4,
+    marginTop: 15,
+    marginBottom: 5,
+    color: '#000', // Fallback color
   },
   bold: {
     fontWeight: 'bold',
   },
   codeBlock: {
-    borderRadius: 6,
-    padding: 8,
-    marginVertical: 6,
+    borderRadius: 8,
+    padding: 10,
+    marginVertical: 8,
     fontFamily: 'monospace',
-    fontSize: 13,
+    fontSize: 14,
   },
   codeLine: {
-    lineHeight: 18,
+    lineHeight: 20,
   },
   keyword: {
     fontWeight: 'bold',
@@ -259,6 +142,5 @@ const styles = StyleSheet.create({
   comment: {
     color: 'gray',
     fontStyle: 'italic',
-    fontSize: 13,
   },
 });
